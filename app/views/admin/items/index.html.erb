@@ -1,0 +1,59 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+	    <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "List")}", admin_items_path  %></li>
+  		<li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_admin_item_path %></li>
+    </ul>
+  </div>          
+  <div class="content">          
+    <h2 class="title"><%= t("web-app-theme.all", :default => "All")  %> Items</h2>
+    <div class="inner">
+      <table class="table">
+        <tr>             
+					<th class="first">
+						<%= t("activerecord.labels.image", :default => "Image") %>
+					</th>
+					<th>
+						<%= t("activerecord.labels.title", :default => "Title") %>
+					</th>
+					<th>
+						<%= t("activerecord.labels.price", :default => "Price") %>
+					</th>					
+					<th>
+						<%= t("activerecord.labels.item_availability", :default => "Item Availability") %>
+					</th>										
+          <th class="last">&nbsp;</th>
+        </tr>
+        <% @items.each do |item| -%>
+        <tr class="<%= cycle("odd", "even") %>">
+					<td>
+						<%= image_tag(item.image.url, :height => "150px") if item.image.exists?  %>
+					</td>
+					<td>
+						<%= link_to item.title, admin_item_path(item) %>
+					</td>
+					<td>
+						<%= item.price %>
+					</td>					
+					<td>
+						<%= item.availabilities.collect {|a| "#{Item::SIZE[a.size]}(#{a.quantity})"}.join(", ") %>
+					</td>
+          <td class="last">
+						<%= link_to 'Наличие',  admin_item_availabilities_path(item) %> |
+            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", admin_item_path(item) %> |
+            <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_admin_item_path(item) %> |
+            <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", admin_item_path(item), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+          </td>
+        </tr>          
+        <% end -%>
+      </table>
+      <div class="actions-bar wat-cf">
+        <div class="actions">
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

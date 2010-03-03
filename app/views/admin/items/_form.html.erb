@@ -1,0 +1,84 @@
+  <div class="group">
+    <%= f.label :category_id, t("activerecord.attributes.item.category_id", :default => "Category"), :class => :label %>
+    <%= f.select :category_id, Category.all.collect {|c| [c.title, c.id]}, :class => 'text_field' %>
+  </div>
+
+  <div class="group">
+    <%= f.label :brand_id, t("activerecord.attributes.item.brand_id", :default => "Brand"), :class => :label %>
+    <%= f.select :brand_id, Brand.all.collect {|b| [b.title, b.id]}, :class => 'text_field' %>
+  </div>
+
+  <div class="group">
+    <%= f.label :gender, t("activerecord.attributes.item.gender", :default => "Gender"), :class => :label %>
+    <%= f.select :gender, Item::GENDER.collect {|i| [i, Item::GENDER.index(i)]}, :class => 'text_field' %>
+  </div>
+
+  <div class="group">
+    <%= f.label :title, t("activerecord.attributes.item.title", :default => "Title"), :class => :label %>
+    <%= f.text_field :title, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :color_list, t("activerecord.attributes.item.color_list", :default => "Colors"), :class => :label %>
+    <%= f.text_field :color_list, :class => 'text_field' %>
+	  <ul class="variants-list" rel="item_color_list">
+			<% for tag in Item.tag_counts_on(:colors) %>
+		  	<li><a href="#"><%= tag.name %></a></li>
+			<% end %>
+		</ul>
+  </div>
+
+  <div class="group">
+    <%= f.label :body, t("activerecord.attributes.item.body", :default => "Body"), :class => :label %>
+    <%= f.text_area :body, :class => 'text_area' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :price, t("activerecord.attributes.item.price", :default => "Price"), :class => :label %>
+    <%= f.text_field :price, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :price_old, t("activerecord.attributes.item.price_old", :default => "Price old"), :class => :label %>
+    <%= f.text_field :price_old, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :image, t("activerecord.attributes.item.image", :default => "Image"), :class => :label %>
+    <%= f.file_field :image, :class => 'text_field' %>
+  </div>
+
+  <div class="group">
+    <%= f.label :public, t("activerecord.attributes.item.public", :default => "Public"), :class => :label %>
+    <%= f.check_box :public, :class => 'check_box' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <!-- <div class="group">
+    <%= f.label :image_file_name, t("activerecord.attributes.item.image_file_name", :default => "Image file name"), :class => :label %>
+    <%= f.text_field :image_file_name, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :image_content_type, t("activerecord.attributes.item.image_content_type", :default => "Image content type"), :class => :label %>
+    <%= f.text_field :image_content_type, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :image_file_size, t("activerecord.attributes.item.image_file_size", :default => "Image file size"), :class => :label %>
+    <%= f.text_field :image_file_size, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div> -->
+        
+<div class="group navform wat-cf">
+  <button class="button" type="submit">
+    <%= image_tag("web-app-theme/tick.png", :alt => "#{t("web-app-theme.save", :default => "Save")}") %> <%= t("web-app-theme.save", :default => "Save") %>
+  </button>  
+  <%= link_to "#{image_tag("web-app-theme/cross.png", :alt => "#{t("web-app-theme.cancel", :default => "Cancel")}")} #{t("web-app-theme.cancel", :default => "Cancel")}", admin_items_path, :class => "button" %> 
+</div>

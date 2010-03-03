@@ -1,0 +1,13 @@
+ru:
+  web-app-theme: 
+    save: Сохранить
+    cancel: Отменить
+    list: Списк
+    edit: Редактировать
+    new: Новый
+    show: Показать
+    delete: Удалить
+    confirm: Вы уверены? 
+    created_at: Дата создания
+    all: Все
+    

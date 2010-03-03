@@ -1,0 +1,42 @@
+ru:
+  activerecord:
+    errors:
+      messages:
+        blank: не может быть пустым
+        taken: такое значение уже существует
+    labels:
+      category: Категория
+      title: Название
+      price: Цена
+      item_availability: Наличие
+      image: Фото
+    models:
+      category: Категория
+      brand: Брэнд
+      page: Страница
+      item: Товар
+      item_availability: Наличие
+    attributes:
+      category:
+        title: Название
+        public: Показывать на сайте        
+      brand:
+        title: Название
+        body: Описание
+        image: Лого
+        public: Показывать на сайте        
+      page:
+        title: Заголовок
+        body: Содержание
+        public: Показывать на сайте        
+      item:
+        title: Название
+        body: Описание
+        price: Цена
+        price_old: Старая цена
+        image: Главное фото
+        public: Показывать на сайте
+        brand_id: Бренд
+        category_id: Категория 
+        gender: Пол
+        color_list: Цвет

@@ -1,0 +1,42 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+	    <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "List")}", admin_item_availabilities_path  %></li>
+  		<li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_admin_item_availability_path %></li>
+    </ul>
+  </div>          
+  <div class="content">          
+    <h2 class="title"><%= t("web-app-theme.all", :default => "All")  %> ItemAvailabilities</h2>
+    <div class="inner">
+      <table class="table">
+        <tr>             
+          <th class="first">Размер</th>
+          <th>Количество</th>
+          <th class="last">&nbsp;</th>
+        </tr>
+        <% @item_availabilities.each do |item_availability| -%>
+        <tr class="<%= cycle("odd", "even") %>">
+          <td>
+            <%= Item::SIZE[item_availability.size] %>
+          </td>
+					<td>
+						<%= item_availability.quantity %>
+					</td>
+          <td class="last">
+            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", admin_item_availability_path(@item, item_availability) %> |
+            <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_admin_item_availability_path(@item, item_availability) %> |
+            <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", admin_item_availability_path(@item, item_availability), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+          </td>
+        </tr>          
+        <% end -%>
+      </table>
+      <div class="actions-bar wat-cf">
+        <div class="actions">
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

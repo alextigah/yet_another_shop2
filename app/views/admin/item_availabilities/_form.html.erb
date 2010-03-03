@@ -1,0 +1,21 @@
+
+
+    <%= f.hidden_field :item_id %>
+
+  <div class="group">
+    <%= f.label :size, t("activerecord.attributes.item_availability.size", :default => "Size"), :class => :label %>
+    <%= f.select :size, Item::SIZE.collect {|s| [s, Item::SIZE.index(s)]}, :class => 'text_field' %> 	
+  </div>
+
+  <div class="group">
+    <%= f.label :quantity, t("activerecord.attributes.item_availability.quantity", :default => "Quantity"), :class => :label %>
+    <%= f.text_field :quantity, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+        
+<div class="group navform wat-cf">
+  <button class="button" type="submit">
+    <%= image_tag("web-app-theme/tick.png", :alt => "#{t("web-app-theme.save", :default => "Save")}") %> <%= t("web-app-theme.save", :default => "Save") %>
+  </button>  
+  <%= link_to "#{image_tag("web-app-theme/cross.png", :alt => "#{t("web-app-theme.cancel", :default => "Cancel")}")} #{t("web-app-theme.cancel", :default => "Cancel")}", admin_item_availabilities_path, :class => "button" %> 
+</div>
