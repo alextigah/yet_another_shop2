@@ -96,6 +96,9 @@ body{
 	padding-bottom:10px;
 	margin-bottom:10px;
 }
+#content #filters ul li{
+	margin:0px 5px 0px 0px;
+}
 #content #filters span{
 	background-color:#e1fdff;
 	padding:3px;
@@ -272,12 +275,13 @@ body{
 #content #similar-items li{
 	list-style:none;
 	display:inline-block;
-	margin:0px 30px 0px 0px;
+	margin:0px 30px 30px 0px;
 	padding:0px 30px 0px 0px;
 	border-right:1px solid #E1E1E1;
 }
 #content #similar-items li div{
 	float:left;
+	margin:0px 5px 0px 0px;
 }
 #content #similar-items li .title{
 	color: #868686;
