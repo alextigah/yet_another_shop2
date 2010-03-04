@@ -12,6 +12,17 @@ ActionController::Routing::Routes.draw do |map|
     end
   end
     
+  map.connect 'shop/:permalink', :controller => 'categories'
+  map.connect 'shop/:permalink/:id', :controller => 'items', :action => 'show'
+  
+  map.resources :items    
+  map.resources :pages
+  map.resources :brands
+  map.root :controller => 'categories'
+  
+  
+  
+    
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:

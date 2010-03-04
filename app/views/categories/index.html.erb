@@ -1,0 +1,105 @@
+<div id="content">
+	<%= render :partial => "shared/menu"%>
+	<div id="filters">
+		<a href="<%= remove_query "gender" %>"><span>все</span></a>
+		<a href="<%= make_query "gender", "man" %>" class="man">Парни</a>
+		<a href="<%= make_query "gender", "woman" %>" class="woman">Девушки</a>
+		<i class="f-separator">&nbsp;</i>
+
+		<a href="<%= remove_query "size" %>"><span>все</span></a>
+		<% for size in Item::SIZE %>
+			<a href="<%= make_query "size", size %>"><%= size %></a>
+		<% end %>
+		<i class="f-separator">&nbsp;</i>	
+		
+		<a href="<%= remove_query "price_range" %>"><span>все</span></a>
+		<a href="<%= make_query "price_range", "< 200" %>">< 200грн</a>
+		<a href="<%= make_query "price_range", "200-300" %>">200-300грн</a>
+		<a href="<%= make_query "price_range", "300 >" %>">300грн ></a>
+		<i class="f-separator">&nbsp;</i>	
+		
+		<%= select_tag 'brands', options_for_select([["все бренды", -1]] + Brand.published.collect {|u| [u.title, u.id]}) %>
+	</div>
+	<div class="goods">
+		<ul>
+			<%= render :partial => "items/item", :collection => @items %>
+			
+			<br class="clearfix"/>				
+		</ul>
+	</div>
+</div>
+
+
+
+<!--
+<li>
+	<div class="plashka sale">
+		<div>
+		<img src="i/sale_icon.png" alt="скидка"/>
+		</div>
+	</div>
+	<a href="#"><img src="images/tshirt_2.jpg" alt="" width="159" height="190" border="0"></a>
+	<div class="price sale">205<span>грн</span></div>	
+	<div class="title"><a href="#">Футболка Alligator</a></div>
+</li>
+<li>
+	<a href="#"><img src="images/tshirt_3.jpg" alt="" width="159" height="190" border="0"></a>
+	<div class="price">205<span>грн</span></div>	
+	<div class="title"><a href="#">Футболка Alligator</a></div>
+</li>
+<li>
+	<a href="#"><img src="images/tshirt_4.jpg" alt="" width="159" height="190" border="0"></a>
+	<div class="price">205<span>грн</span></div>	
+	<div class="title"><a href="#">Футболка Alligator</a></div>
+</li>
+<li>
+	<a href="#"><img src="images/tshirt_5.jpg" alt="" width="159" height="190" border="0"></a>
+	<div class="price">205<span>грн</span></div>	
+	<div class="title"><a href="#">Футболка Alligator</a></div>
+</li>
+<li>
+	<div class="plashka hot">
+		<div>
+		<img src="i/hot_icon.png" alt="новинка"/>
+		</div>
+	</div>
+	<a href="#"><img src="images/tshirt_1.jpg" alt="" width="159" height="190" border="0"></a>
+	<div class="price hot" >205<span>грн</span></div>	
+	<div class="title"><a href="#">Футболка Alligator</a></div>
+</li>
+<li>
+	<div class="plashka sale">
+		<div>
+		<img src="i/sale_icon.png" alt="скидка"/>
+		</div>
+	</div>
+	<a href="#"><img src="images/tshirt_2.jpg" alt="" width="159" height="190" border="0"></a>
+	<div class="price sale">205<span>грн</span></div>	
+	<div class="title"><a href="#">Футболка Alligator</a></div>
+</li>
+<li>
+	<a href="#"><img src="images/tshirt_3.jpg" alt="" width="159" height="190" border="0"></a>
+	<div class="price">205<span>грн</span></div>	
+	<div class="title"><a href="#">Футболка Alligator</a></div>
+</li>
+<li>
+	<a href="#"><img src="images/tshirt_4.jpg" alt="" width="159" height="190" border="0"></a>
+	<div class="price">205<span>грн</span></div>	
+	<div class="title"><a href="#">Футболка Alligator</a></div>
+</li>
+<li>
+	<a href="#"><img src="images/tshirt_5.jpg" alt="" width="159" height="190" border="0"></a>
+	<div class="price">205<span>грн</span></div>	
+	<div class="title"><a href="#">Футболка Alligator</a></div>
+</li>
+<li>
+	<a href="#"><img src="images/tshirt_4.jpg" alt="" width="159" height="190" border="0"></a>
+	<div class="price">205<span>грн</span></div>	
+	<div class="title"><a href="#">Футболка Alligator</a></div>
+</li>
+<li>
+	<a href="#"><img src="images/tshirt_5.jpg" alt="" width="159" height="190" border="0"></a>
+	<div class="price">205<span>грн</span></div>	
+	<div class="title"><a href="#">Футболка Alligator</a></div>
+</li>
+-->

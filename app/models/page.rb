@@ -5,5 +5,10 @@ class Page < ActiveRecord::Base
   validates_presence_of :title
   validates_presence_of :body
   
+  named_scope :published, :conditions => {:public => true}  
+  
+  def link
+    "/pages/#{id}"
+  end
   
 end

@@ -9,14 +9,14 @@ class CreateItems < ActiveRecord::Migration
       t.text :body 
       
       t.float :price, :null => false, :default => 0.0
-      t.float :price_old
+      t.float :price_old, :null => false, :default => 0.0
       
       
       t.string :image_file_name
       t.string :image_content_type
       t.integer :image_file_size    
       
-      
+      t.integer :status, :null => false, :default => 0
       t.integer :gender, :null => false, :default => 1
       t.boolean :public, :null => false, :default => true  
 

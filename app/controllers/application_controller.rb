@@ -4,7 +4,15 @@
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
+  filter_parameter_logging :password
 
-  # Scrub sensitive parameters from your log
-  # filter_parameter_logging :password
+  before_filter :setup
+
+  protected
+
+    def setup
+      @pages = Page.published
+      @categories = Category.published
+    end
+  
 end

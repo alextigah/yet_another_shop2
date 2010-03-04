@@ -1,0 +1,12 @@
+<li>
+	<% unless item.status.zero? %>
+	<div class="plashka <%= Item::STATUS[item.status]%>">
+		<div>
+		<img src="/i/<%= Item::STATUS[item.status]%>_icon.png" alt="новинка"/>
+		</div>
+	</div>
+	<% end %>
+	<a href="<%= item.link %>"><img src="<%= item.image.url(:thumb) %>" alt="" width="159" height="190" border="0"></a>
+	<div class="price hot" ><%= price_print(item.price) %><span>грн</span></div>	
+	<div class="title"><a href="#"><%= item.title %></a></div>
+</li>

@@ -1,0 +1,5 @@
+<div id="menu">
+	<% for category in @categories %>
+		<a href="<%= category.link %>" class="<%= select?(category) %>"><%= category.title %></a>
+	<% end %>
+</div>

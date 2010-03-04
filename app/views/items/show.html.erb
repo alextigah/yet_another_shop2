@@ -1,0 +1,55 @@
+<div id="content">
+	<%= render :partial => "shared/menu"%>
+	
+	<div class="back-nav"><a href="<% %>"><span>&larr;</span> вернуться к списку</a></div>
+	<div id="item">
+		<div class="item-images">
+			<div class="large-photo">
+				<img src="<%= @item.image.url %>" width="" height="" alt="">
+			</div>
+			<ul class="small-photos">
+				<li class="current"><img src="/images/tshirt_1_s.jpg" width="90" height="90" alt=""></li>
+				<li><img src="/images/tshirt_1_s.jpg" width="90" height="90" alt=""></li>
+				<li><img src="/images/tshirt_1_s.jpg" width="90" height="90" alt=""></li>
+			</ul>
+		</div>
+		<div class="item-info">
+			<h1><%= @item.title %></h1>
+			<p class="description">
+				<%= @item.body %>
+			</p>
+			<div class="brand">
+				<a href="<%= brand_path(@item.brand) %>"><img src="<%= @item.brand.image.url %>" border="0"></a>
+			</div>
+			<div class="price">
+				<span class="new-price">
+					<%= price_print @item.price %>грн
+				</span>
+				<% unless @item.price_old.zero? %>
+				<span class="old-price">
+					<%= @item.price_old %>грн
+				</span>
+				<% end %>
+			</div>
+
+			<div class="size">
+				<select><option>выберите размер</option></select>
+				<span><a href="#">таблица размеров</a></span>
+			</div>
+			<div class="cart-button">
+				<input type="submit" value="Купить">
+			</div>
+			<div class="share">
+				<a href="#"><img src="/i/retweet.png" width="50" height="14" border="0" alt=""></a>
+				<a href="#"><img src="/i/facebook-share.png" width="44" height="14" border="0" alt=""></a>
+			</div>
+		</div>
+		<br class="clearfix"/>
+	</div>
+	<div id="similar-items">
+		<div class="header">Смотрите также:</div>
+			<ul>
+				<%= render :partial => "item_small", :collection => Item.published.gender(@item.gender).not_self(@item).random.limit(5), :as => :item %>
+			</ul>
+		</div>
+</div>

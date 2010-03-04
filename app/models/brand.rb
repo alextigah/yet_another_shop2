@@ -6,4 +6,6 @@ class Brand < ActiveRecord::Base
   
   validates_presence_of :title
   
+  named_scope :published, :conditions => {:public => true}
+  
 end

@@ -14,6 +14,8 @@ Rails::Initializer.run do |config|
   config.gem 'mislav-will_paginate', :lib => 'will_paginate', :source => 'http://gems.github.com'
   config.gem 'inherited_resources', :lib => 'inherited_resources', :source => 'http://gems.github.com', :version => '1.0.3'
   
+  config.gem 'populator'  
+  
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers
   # -- all .rb files in that directory are automatically loaded.

@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(:version => 20100212003721) do
 
   create_table "categories", :force => true do |t|
     t.string   "title"
+    t.string   "permalink",                    :null => false
     t.integer  "position",   :default => 0,    :null => false
     t.boolean  "public",     :default => true, :null => false
     t.datetime "created_at"
@@ -44,10 +45,11 @@ ActiveRecord::Schema.define(:version => 20100212003721) do
     t.string   "title",              :default => "",   :null => false
     t.text     "body"
     t.float    "price",              :default => 0.0,  :null => false
-    t.float    "price_old"
+    t.float    "price_old",          :default => 0.0,  :null => false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
+    t.integer  "status",             :default => 0,    :null => false
     t.integer  "gender",             :default => 1,    :null => false
     t.boolean  "public",             :default => true, :null => false
     t.datetime "created_at"

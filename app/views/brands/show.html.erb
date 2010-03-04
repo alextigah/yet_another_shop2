@@ -1,0 +1,5 @@
+<div id="content">
+	<h1><%= @brand.title %></h1>
+	<%= image_tag @brand.image.url %>
+	<p><%= @brand.body.gsub(/\n/, "<br />") %></p>
+</div>
