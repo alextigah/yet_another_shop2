@@ -155,6 +155,15 @@ body{
 	font-style:italic;
 	text-decoration:none;
 }
+#content .goods .pages{
+	float:right;
+}
+#content .goods .pages a{
+	
+}
+#content .goods .pages .current{
+	
+}
 #footer {
 	padding:40px 30px 20px 30px;
 }
