@@ -100,7 +100,6 @@ body{
 	display:inline-block;	
 }
 #content #filters ul li{
-	margin:0px 0px 0px 0px;
 	display:inline-block;
 	list-style:none;
 	vertical-align:baseline;
@@ -111,7 +110,7 @@ body{
 }
 #content #filters a{
 	color: #868686;
-	margin-left:10px;
+	margin:0px 10px 0px 0px;
 	text-decoration:none;
 }
 #content #filters a.man{
