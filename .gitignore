@@ -6,6 +6,7 @@ doc
 tmp
 log
 log/*.log
+log/development.log
 db/*.sqlite3
 public/system
 db/schema.rb
