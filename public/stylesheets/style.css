@@ -96,14 +96,7 @@ body{
 	padding-bottom:10px;
 	margin-bottom:10px;
 }
-#content #filters ul {
-	display:inline-block;	
-}
-#content #filters ul li{
-	display:inline-block;
-	list-style:none;
-	vertical-align:baseline;
-}
+
 #content #filters span{
 	background-color:#e1fdff;
 	padding:3px;
