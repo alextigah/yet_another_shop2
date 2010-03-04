@@ -1,0 +1,15 @@
+.DS_Store
+._.DS_Store
+.idea
+nbproject
+doc
+tmp
+log
+log/*.log
+db/*.sqlite3
+public/system
+db/schema.rb
+config/database.yml
+config/development.sphinx.conf
+public/upload
+public/images/uploads
