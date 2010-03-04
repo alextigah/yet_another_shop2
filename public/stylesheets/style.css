@@ -161,9 +161,17 @@ body{
 #content .pages a{
 	color:#868686;
 	font-size:14px;
+	margin:0px 5px 0px 0px;
+	background-color:#0045b7;
+	padding:2px 3px 2px 3px;
+	text-decoration:none;
 }
 #content .pages .current{
 	
+}
+#content .pages .nav{
+	color:#868686;
+	font-size:14px;	
 }
 #footer {
 	padding:40px 30px 20px 30px;
