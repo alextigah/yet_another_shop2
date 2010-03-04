@@ -155,10 +155,10 @@ body{
 	font-style:italic;
 	text-decoration:none;
 }
-#content .goods .pages{
+#content .pages{
 	float:right;
 }
-#content .goods .pages a{
+#content .pages a{
 	color:#868686;
 	font-size:14px;
 }
