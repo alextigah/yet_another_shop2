@@ -159,7 +159,8 @@ body{
 	float:right;
 }
 #content .goods .pages a{
-	color:#868686	
+	color:#868686;
+	font-size:14px;
 }
 #content .goods .pages .current{
 	
