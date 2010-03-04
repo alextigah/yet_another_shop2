@@ -106,7 +106,7 @@ body{
 	margin:0px 10px 0px 0px;
 	text-decoration:none;
 }
-#content #filters .colors{
+#content #filters .colors a{
 	vertical-align:bottom;
 }
 #content #filters a.man{
