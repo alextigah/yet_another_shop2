@@ -1,7 +1,9 @@
 <li>
-	<div>
+	<div class="left">
 		<a href="<%= item.link %>"><img src="<%= item.image.url(:small) %>" width="90" height="90" border="0" alt=""></a>
 	</div>
-	<a href="<%= item.link %>" class="title"><%= item.title %></a><br/>
-	<span class="price"><%= price_print item.price %>грн</span>				
+	<div class="left">
+		<a href="<%= item.link %>" class="title"><%= item.title %></a><br/>
+		<span class="price"><%= price_print item.price %>грн</span>
+	</div>		
 </li>

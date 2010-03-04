@@ -12,6 +12,9 @@ br.clearfix {
 	font-size: 1px;
 	line-height: 1px; 
 }
+.left{
+	float:left;
+}
 select{
 	border:1px solid #e1e1e1;
 }
@@ -282,7 +285,6 @@ body{
 	border-right:1px solid #E1E1E1;
 }
 #content #similar-items li div{
-	float:left;
 	margin:0px 5px 0px 0px;
 }
 #content #similar-items li .title{
