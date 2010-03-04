@@ -106,6 +106,7 @@ body{
 	margin:0px 10px 0px 0px;
 	text-decoration:none;
 	vertical-align:baseline;
+	line-height:5px;
 }
 #content #filters a.man{
 	color:#0097b7;
