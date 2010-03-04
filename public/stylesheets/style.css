@@ -102,6 +102,7 @@ body{
 #content #filters ul li{
 	margin:0px 5px 0px 0px;
 	display:inline-block;
+	list-style:none;
 }
 #content #filters span{
 	background-color:#e1fdff;
