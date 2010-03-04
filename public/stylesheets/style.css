@@ -42,6 +42,10 @@ body{
 	font-weight:bold;
 	font-style:italic;
 }
+#header .right-part{
+	float:right;
+	margin-right:30px;
+}
 #header #phone{
 	font-size:28px;
 	color:#fff;
