@@ -105,8 +105,9 @@ body{
 	color: #868686;
 	margin:0px 10px 0px 0px;
 	text-decoration:none;
+}
+#content #filters .colors{
 	vertical-align:bottom;
-	line-height:5px;
 }
 #content #filters a.man{
 	color:#0097b7;
