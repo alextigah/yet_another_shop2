@@ -96,8 +96,12 @@ body{
 	padding-bottom:10px;
 	margin-bottom:10px;
 }
+#content #filters ul {
+	display:inline-block;	
+}
 #content #filters ul li{
 	margin:0px 5px 0px 0px;
+	display:inline-block;
 }
 #content #filters span{
 	background-color:#e1fdff;
