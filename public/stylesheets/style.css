@@ -115,6 +115,9 @@ body{
 	vertical-align:bottom;
 	display:inline-block;
 }
+#content #filters .colors a{
+	margin:0px;
+}
 #content #filters a.man{
 	color:#0097b7;
 }
