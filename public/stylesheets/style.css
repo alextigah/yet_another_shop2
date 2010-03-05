@@ -177,9 +177,8 @@ body{
 	padding:2px 3px 2px 3px;
 	text-decoration:none;
 }
-#content .pages .nav{
-	color:#868686;
-	font-size:14px;	
+#content .pages span{
+	margin:0px 10px 0px 0px;
 }
 #footer {
 	padding:40px 30px 20px 30px;
