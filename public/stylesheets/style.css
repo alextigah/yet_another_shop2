@@ -163,13 +163,14 @@ body{
 #content .pages .numbers a{
 	color:#868686;
 	font-size:12px;
+	margin:0px 5px 0px 0px;
 }
 #content .pages a{
 	margin:0px 5px 0px 0px;
 	color:#868686;
 }
 #content .pages .current{
-	color:#868686;
+	color:#fff;
 	font-size:12px;
 	margin:0px 5px 0px 0px;
 	background-color:#0045b7;
