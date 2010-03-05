@@ -166,6 +166,7 @@ body{
 	float:right;
 	color:#868686;
 	font-size:12px;
+	white-space: nowrap;
 }
 #content .pages .numbers{
 	margin:0px;
