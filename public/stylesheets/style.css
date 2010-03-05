@@ -168,8 +168,14 @@ body{
 	padding:2px 3px 2px 3px;
 	text-decoration:none;
 }
+#content .pages a{
+	margin:0px 5px 0px 0px;
+	color:#868686;
+}
 #content .pages .current{
-	
+	color:#868686;
+	font-size:12px;
+	margin:0px 5px 0px 0px;	
 }
 #content .pages .nav{
 	color:#868686;
