@@ -160,6 +160,9 @@ body{
 	color:#868686;
 	font-size:12px;
 }
+#content .pages .numbers{
+	margin:0px;
+}
 #content .pages .numbers a{
 	color:#868686;
 	font-size:12px;
