@@ -157,10 +157,12 @@ body{
 }
 #content .pages{
 	float:right;
-}
-#content .pages a{
 	color:#868686;
-	font-size:14px;
+	font-size:12px;
+}
+#content .pages .numbers a{
+	color:#868686;
+	font-size:12px;
 	margin:0px 5px 0px 0px;
 	background-color:#0045b7;
 	padding:2px 3px 2px 3px;
