@@ -76,6 +76,15 @@ body{
 	height:55px;
 	width:100%;
 }
+#content h1{
+	color:#868686;
+	font-size:24px;	
+}
+#content p{
+	margin-top:20px;
+	color:#868686;
+	font-size:124px;
+}
 #content{
 	padding:10px 30px 0px 30px;
 	background-color:#fff;
