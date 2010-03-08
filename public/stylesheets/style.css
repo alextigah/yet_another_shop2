@@ -15,7 +15,7 @@ br.clearfix {
 .left{
 	float:left;
 }
-select{
+select, input, textarea{
 	border:1px solid #e1e1e1;
 }
 body{
@@ -79,6 +79,114 @@ body{
 #content h1{
 	color:#0045B7;
 	font-size:24px;	
+}
+#content h2{
+	color:#0045b7;
+	font-size:18px;
+	margin:0px 0px 20px 0px;
+}
+#content h3{
+	margin:0px 0px 10px 0px;
+	color:#868686;
+	font-size:14px;
+	font-weight:bold;
+}	
+#content table tr td{
+	padding:10px 40px 10px 0px;
+	color:#868686;
+	font-size:14px;
+	vertical-align:middle;
+}
+#content table tr td a{
+	color:#868686;
+	font-size:16px;
+	text-decoration:none;
+}
+#content table tr td .size{
+	font-style:italic;
+}
+#content table tr td .delete-button{
+	background:transparent url(../i/delete_icon.png) no-repeat scroll 0 0;
+	float:left;
+	outline-style:none;
+	text-indent:-2000em;
+	width:15px;
+	height:15px;
+}
+#content .cart-items{
+	margin:0px 30px 40px 30px;
+	color:#868686;
+	font-size:14px;
+}
+#content .cart-items div{
+	border-top:1px solid #e1e1e1;
+	padding:10px 0px 0px 0px;
+}
+#content .cart-items div span{
+	color:#b52631;
+	font-size:18px;	
+	padding:0px 40px 0px 0px;
+}
+#content .cart-items #discount{
+	width:45px;	
+}
+#content .cart-items div .note{
+	font-size:11px;	
+	color:#868686;
+}
+#content .order-options{
+	margin:0px 30px 90px 30px;
+	height:300px;
+}
+#content .order-options div{
+	float:left;
+	width:300px;
+	margin:0px 30px 20px 0px;
+	height:100%;
+}
+#content .order-options div div{
+	height:auto;
+	width:auto;
+	margin:0px 5px 20px 0px;
+}
+#content .order-options div.border{
+	border-right:1px dashed #E1E1E1;
+}
+#content label{
+	display:block;
+	color:#868686;
+	font-size:12px;
+}
+#content .order-options input[type=text], textarea{
+	width:250px;
+	margin:0px 0px 10px 0px;
+}
+#content .order-options select{
+	width:253px;
+	margin:0px 0px 10px 0px;
+}
+#content .order-options span{
+	font-style:italic;
+	display:block;
+}
+
+#content .order-options .note{
+	color:#d04a2b;
+	font-size:11px;	
+}
+#content .order-submit{
+	margin:0px 30px 0px 30px;
+}
+
+#content .order-submit #confirm{
+	background:transparent url(../i/confirm-button.png) repeat scroll 0 0;
+	border:0 none;
+	cursor:pointer;
+	height:24px;
+	outline-style:none;
+	text-indent:-2000px;
+	width:144px;
+	margin:30px 0px 0px 130px;
 }
 #content .text{
 	margin:20px 30px 0px 30px;
