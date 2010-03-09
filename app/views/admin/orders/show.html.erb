@@ -1,0 +1,64 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "List")}", admin_orders_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_admin_order_path %></li>
+      <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Show")}", admin_order_path %></li>
+    </ul>
+  </div>          
+  <div class="content">
+    <div class="inner">
+      
+        <p>
+          <b><%= t("activerecord.attributes.admin_order.shipping_type", :default => t("activerecord.labels.shipping_type", :default => "Shipping type")) %>:</b>
+          <%= @order.shipping_type %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.admin_order.payment_type", :default => t("activerecord.labels.payment_type", :default => "Payment type")) %>:</b>
+          <%= @order.payment_type %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.admin_order.code", :default => t("activerecord.labels.code", :default => "Code")) %>:</b>
+          <%= @order.code %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.admin_order.user_name", :default => t("activerecord.labels.user_name", :default => "User name")) %>:</b>
+          <%= @order.user_name %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.admin_order.email", :default => t("activerecord.labels.email", :default => "Email")) %>:</b>
+          <%= @order.email %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.admin_order.phone", :default => t("activerecord.labels.phone", :default => "Phone")) %>:</b>
+          <%= @order.phone %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.admin_order.city", :default => t("activerecord.labels.city", :default => "City")) %>:</b>
+          <%= @order.city %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.admin_order.address", :default => t("activerecord.labels.address", :default => "Address")) %>:</b>
+          <%= @order.address %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.admin_order.comments", :default => t("activerecord.labels.comments", :default => "Comments")) %>:</b>
+          <%= @order.comments %>
+        </p>
+      <div class="wat-cf">
+        <%= link_to "#{image_tag("web-app-theme/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}")} #{t("web-app-theme.edit", :default=> "Edit")}", edit_admin_order_path(@order), :class => "button" %> 
+        <%= link_to "#{image_tag("web-app-theme/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}")} #{t("web-app-theme.delete", :default => "Delete")}", admin_order_path(@order), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+      </div>      
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

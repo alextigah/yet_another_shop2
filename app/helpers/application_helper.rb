@@ -5,6 +5,10 @@ module ApplicationHelper
     price.to_i
   end
   
+  def order
+    @order
+  end
+  
   def select?(category)
     if request.request_uri.include?(category.permalink)
       "active"

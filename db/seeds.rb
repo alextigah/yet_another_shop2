@@ -46,6 +46,13 @@ Category.populate(2) do |category|
     item.public = true
     item.brand_id = brands
     item.status = [0,1,2]
+    
+    ItemAvailability.populate(1..3) do |avail|
+      avail.item_id = item.id      
+      avail.size = [0,1,2,3]
+      avail.quantity = rand(5)
+    end
+    
   end
   
 end

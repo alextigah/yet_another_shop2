@@ -3,6 +3,7 @@ ActionController::Routing::Routes.draw do |map|
   
   map.connect 'admin', :controller => 'admin/categories'
   map.namespace :admin do |admin|
+    admin.resources :orders
     admin.resources :categories
     admin.resources :brands
     admin.resources :pages
@@ -18,11 +19,10 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :items    
   map.resources :pages
   map.resources :brands
+  map.resources :order_items
+  map.resource :orders, :member => {:success => :get}
   map.root :controller => 'categories'
   
-  
-  
-    
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
