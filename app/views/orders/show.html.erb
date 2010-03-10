@@ -1,0 +1,66 @@
+<div id="content">
+	<%= render :partial => "shared/menu"%>
+
+	<% if @order.items.count > 0 %>
+		<div class="cart-items">
+			<h2>Выбранные товары</h2>
+			<table>
+				<% for item in @order.items %>
+				<tr>
+					<td><img src="<%= item.item.image.url(:small) %>" width="" height="" border="0" alt=""></td>
+					<td><p><a href="<%= item.item.link %>"><%= item.item.title %></a> <p class="size">размер <%= Item::SIZE[item.item_availability.size]%></p></td>
+					<td><%= price_print item.item.price %>грн</td>
+					<td><%= link_to 'удалить', order_item_path(item), :method => :delete, :confirm => "Вы уверены?", :class => "delete-button" %></td>
+				</tr>
+				<% end %>
+				<tr>
+					<td><img src="i/delivery-icon.jpg" width="72" height="72" border="0" alt=""></td>
+					<td>Доставка курьер по Киеву</td>
+					<td>0грн</td>
+					<td>&nbsp;</td>
+				</tr>
+			</table>
+			<div>Всего к оплате <span><%= price_print @order.items.collect {|i| i.item.price}.sum %>грн</span> Скидочный купон <input type="text" id="discount"> <span class="note">6 значное число</span></div>
+		</div>
+	
+		<% form_for @order, :url => orders_path do |f| %>
+			<div class="order-options">
+				<h2>Оформление заказа</h2>
+				<div class="border">
+					<h3>Контактная информация</h3>
+					<%= f.label :user_name, 'Имя, фамилия' %><%= f.text_field :user_name %>
+					<%= f.label :user_name, 'Электронаая почта' %><%= f.text_field :email %>
+					<%= f.label :user_name, 'Мобильный телефон' %><%= f.text_field :phone %>
+					<%= f.label :city, 'Город' %><%= f.select :city, '<option>Киев</option>' %>
+					<%= f.label :address, 'Адрес' %><%= f.text_area :address %>
+					<p class="note">поля выше обязательны для заполнения</p>
+				</div>
+				<div class="border">
+					<h3>Доставка</h3>
+					<div><%= f.radio_button :shipping_type, 0 %></div><div class="left"><label>Самовывоз<span>Магазин на м. Крещатик</span></label></div><br class="clearfix" />			
+					<div><%= f.radio_button :shipping_type, 1 %></div><div class="left"><label>Курьером по Киеву<span>бесплатно</span></label></div><br class="clearfix" />
+					<div><%= f.radio_button :shipping_type, 2 %></div><div class="left"><label>Курьером по Украине<span>15грн +</span></label></div><br class="clearfix" />
+				</div>
+				<div>
+					<h3>Оплата</h3>
+					<div><%= f.radio_button :payment_type, 0 %></div><div class="left"><label>Наличными</label></div><br class="clearfix" />
+					<div><%= f.radio_button :payment_type, 1 %></div><div class="left"><img src="i/webmoney_icon.png" width="" height="" alt="Webmoney"/><label>Денежный перевод Webmoney</label></div><br class="clearfix" />
+					<div><%= f.radio_button :payment_type, 2 %></div><div class="left"><img src="i/privat-money_icon.png" width="" height="" alt="PrivatMoney"/><label>Денежный перевод PrivatMoney</label></div><br class="clearfix" />
+					<div><%= f.radio_button :payment_type, 3 %></div><div class="left"><img src="i/liq-pay_icon.png" width="" height="" alt="LiqPay"/> <img src="i/visa-mastercard_icon.png" width="" height="" alt="LiqPay(Visa\Mastercard)"/><label>Денежный перевод LiqPay(Visa\Mastercard)</label></div><br class="clearfix" />
+				</div>
+				<br class="clearfix" />				
+			</div>
+	
+			<div class="order-submit">
+				<div class="left"><label>Примечание к заказу</label><%= f.text_area :comments %></div>
+				<div class="left"><input type="submit" id="confirm"></div>
+				<br class="clearfix"/>
+			</div>
+		<% end %>
+	<% else %>
+		
+		В вашей корзине пусто
+	
+	<% end %>
+
+</div>

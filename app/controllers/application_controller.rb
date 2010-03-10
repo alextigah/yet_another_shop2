@@ -13,6 +13,10 @@ class ApplicationController < ActionController::Base
     def setup
       @pages = Page.published
       @categories = Category.published
+      @order = Order.find_by_id(session[:order_id]) or session[:order_id] = Order.create.id
+      # raise Order.create.errors.inspect
     end
+  
+  
   
 end

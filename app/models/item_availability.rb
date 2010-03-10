@@ -5,4 +5,7 @@ class ItemAvailability < ActiveRecord::Base
   validates_presence_of :quantity
   validates_uniqueness_of :size, :scope => :item_id
   
+  
+  named_scope :in_stock, :conditions => "quantity > 0"
+  
 end
