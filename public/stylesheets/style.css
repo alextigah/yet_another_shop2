@@ -26,7 +26,6 @@ body{
 #header{
 	background:url('../i/header_bg2.png') repeat-x;
 	padding:30px 0px 0px 0px;
-
 }
 #header #logo{
 	float:left;
@@ -75,6 +74,12 @@ body{
 	background:url('../i/clouds_bg.png') repeat scroll -35px 0px;
 	height:55px;
 	width:100%;
+}
+#content{
+	padding:10px 0px 0px 0px;
+	margin: 0 auto;
+	width:1024px;
+	border:1px solid red;
 }
 #content h1{
 	color:#0045B7;
@@ -193,10 +198,7 @@ body{
 	color:#868686;
 	font-size:14px;
 }
-#content{
-	padding:10px 30px 0px 30px;
-	background-color:#fff;
-}
+
 #content #menu {
 	margin-bottom:10px;
 }
@@ -250,12 +252,12 @@ body{
 	margin:0px 10px 0px 0px;
 }
 #content .goods {
-	margin:0px 30px 0px 30px;
+	margin:0px 0px 0px 0px;
 }
 #content .goods ul li {
 	list-style:none;
 	float:left;
-	margin:0px 20px 30px 0px;
+	margin:0px 45px 30px 0px;
 }
 #content .goods ul li .price{
 	color: #6d6d6d;
