@@ -32,7 +32,7 @@
 					<%= f.label :user_name, 'Электронаая почта' %><%= f.text_field :email %>
 					<%= f.label :user_name, 'Мобильный телефон' %><%= f.text_field :phone %>
 					<%= f.label :city, 'Город' %><%= f.select :city, '<option>Киев</option>' %>
-					<%= f.label :address, 'Адрес' %><%= f.text_area :address, :rows => "2" %>
+					<%= f.label :address, 'Адрес' %><%= f.text_area :address, :rows => "3" %>
 					<p class="note">поля выше обязательны для заполнения</p>
 				</div>
 				<div class="border">
@@ -52,7 +52,7 @@
 			</div>
 	
 			<div class="order-submit">
-				<div class="left"><label>Примечание к заказу</label><%= f.text_area :comments, :rows => "2"  %></div>
+				<div class="left"><label>Примечание к заказу</label><%= f.text_area :comments, :rows => "3"  %></div>
 				<div class="left"><input type="submit" id="confirm"></div>
 				<br class="clearfix"/>
 			</div>
