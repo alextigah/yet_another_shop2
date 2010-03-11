@@ -384,7 +384,8 @@ body{
 #content #item .description{
 	font-size:12px;
 	color:#868686;
-	margin-bottom:20px;	
+	margin-bottom:20px;
+	width:100%;
 }
 #content #item .brand{
 	margin-bottom:20px;		
