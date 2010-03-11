@@ -1,6 +1,4 @@
-
-
-<li <%if @count == 2 %> class="no-border"<% end %>>
+<li>
 	<div class="left">
 		<a href="<%= item.link %>"><img src="<%= item.image.url(:small) %>" width="90" height="90" border="0" alt=""></a>
 	</div>
@@ -9,4 +7,3 @@
 		<span class="price"><%= price_print item.price %>грн</span>
 	</div>		
 </li>
-<% @count =+ 1%>

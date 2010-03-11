@@ -1,2 +1,14 @@
-// Place your application-specific JavaScript functions and classes here
-// This file is automatically included by javascript_include_tag :defaults
+$(function(){
+
+
+
+});
+
+
+function set_no_border_for_last_list_in_similar_items()
+{
+	
+	var items = $("#similar-items li");
+	$(items[items.length-1]).addClass("no-border");
+	
+}

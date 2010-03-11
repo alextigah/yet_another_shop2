@@ -1,6 +1,5 @@
 $(function(){
 
-
 	$(".variants-list li").each(function(idx, element)
 	{
 		$(element).click(function(e)
