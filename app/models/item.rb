@@ -5,6 +5,8 @@ class Item < ActiveRecord::Base
   GENDER = %w[Девушки Парни Унисекс]
   SIZE = %w[S M L XL]
   STATUS = %w[blank hot sale]
+  cattr_reader :per_page
+  @@per_page = 15  
   
   acts_as_taggable_on :tags, :colors
 

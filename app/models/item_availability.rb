@@ -8,4 +8,6 @@ class ItemAvailability < ActiveRecord::Base
   
   named_scope :in_stock, :conditions => "quantity > 0"
   
+  default_scope :order => "size ASC"
+  
 end
