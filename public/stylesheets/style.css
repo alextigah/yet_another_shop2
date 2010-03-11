@@ -364,7 +364,7 @@ body{
 	margin:0px 20px 0px 0px;
 }
 #content #item .item-info{
-	float:left;
+	display:inline;
 	width:100%;
 }
 #content #item .small-photos li{
