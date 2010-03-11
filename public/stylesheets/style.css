@@ -181,6 +181,7 @@ body{
 }
 #content .order-submit{
 	margin:0px 0px 0px 0px;
+	text-align:center;
 }
 
 #content .order-submit #confirm{
