@@ -163,11 +163,11 @@ body{
 	font-size:12px;
 }
 #content .order-options input[type=text], textarea{
-	width:260px;
+	width:270px;
 	margin:0px 0px 10px 0px;
 }
 #content .order-options select{
-	width:253px;
+	width:273px;
 	margin:0px 0px 10px 0px;
 }
 #content .order-options span{
