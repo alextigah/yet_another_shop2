@@ -430,6 +430,9 @@ body{
 #content #item .share a{
 	margin:0px 10px 0px 0px;
 }
+#content #similar-items{
+	text-align:center;
+}
 #content #similar-items .header{
 	color: #0045B7;;
 	font-size:14px;
@@ -445,7 +448,7 @@ body{
 	margin:0px 30px 30px 0px;
 	padding:0px 30px 0px 0px;
 	border-right:1px solid #E1E1E1;
-	text-align:center;
+	text-align:left;
 }
 #content #similar-items li .no-border{
 	border:none;
