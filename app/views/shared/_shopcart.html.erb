@@ -3,6 +3,6 @@
 	<% if order && order.items.count > 0 %>
 		<a href="<%= orders_path %>"><%= order.items.count %> товара на сумму <%= price_print order.items.collect {|i| i.item.price}.sum %> грн.</a>
 	<% else %>
-		<a href="#">Нажмите "в корзину" на странице товара</a>
+		<a href="#">Нет товаров</a>
 	<% end %>
 </div>
