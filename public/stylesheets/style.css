@@ -194,7 +194,7 @@ body{
 	width:144px;
 	margin:20px 0px 0px 0px;
 }
-#content .order-submit input{
+#content .order-submit textarea{
 	width:400px;
 }
 #content .text{
