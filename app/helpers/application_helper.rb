@@ -36,22 +36,20 @@ module ApplicationHelper
 
        url + "?" + res.join("&")
      else
-       url
+       request.request_uri
      end
    end 
+   
 
    def add_query(key, value)
      url, query = request.request_uri.split("?")
 
-     if query && !query.include?(key)
+     if query
        res = []
        params = CGI::parse(query)
        params[key] = value
        params.each_pair {|k,v| res << k.to_s + "=" + v.to_s}
-
        url + "?" + res.join("&")
-     else
-       url + "?#{key}=#{value}"
      end
    end
   
