@@ -25,6 +25,7 @@ module ApplicationHelper
     end
 	end
 	
+	
   def remove_query(key)
      url, query = request.request_uri.split("?")
 
@@ -50,6 +51,8 @@ module ApplicationHelper
        params[key] = value
        params.each_pair {|k,v| res << k.to_s + "=" + v.to_s}
        url + "?" + res.join("&")
+     elsif query.blank?       
+       url + "?#{key}=#{value}"
      end
    end
   
