@@ -365,7 +365,7 @@ body{
 }
 #content #item .item-info{
 	float:left;
-	width:1005;
+	width:100%;
 }
 #content #item .small-photos li{
 	list-style:none;
