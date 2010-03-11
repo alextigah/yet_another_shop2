@@ -50,7 +50,7 @@
 		<br class="clearfix"/>
 	</div>
 	<div id="similar-items">
-		<div class="header">Смотрите также:</div>
+		<div class="header">Смотрите также</div>
 			<ul>
 				<%= render :partial => "item_small", :collection => Item.published.gender(@item.gender).not_self(@item).random.limit(3), :as => :item %>
 			</ul>
