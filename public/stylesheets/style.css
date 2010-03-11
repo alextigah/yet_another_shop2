@@ -79,6 +79,7 @@ body{
 	padding:10px 0px 0px 0px;
 	margin: 0 auto;
 	width:1024px;
+	border:1px solid red;
 }
 #content h1{
 	color:#0045B7;
@@ -429,9 +430,8 @@ body{
 	margin:0px 10px 0px 0px;
 }
 #content #similar-items .header{
-	color: #868686;
+	color: #0045B7;;
 	font-size:12px;
-	border-bottom:1px solid #e1e1e1;
 	margin:20px 0px 10px 0px;
 	text-align:center;
 	padding:0px 0px 5px 0px;
