@@ -455,7 +455,7 @@ body{
 	text-align:left;
 }
 #content #similar-items li .no-border{
-	border:none;
+	border-style:none
 }
 #content #similar-items li div{
 	margin:0px 5px 0px 0px;
