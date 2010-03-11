@@ -365,6 +365,7 @@ body{
 }
 #content #item .item-info{
 	float:left;
+	width:1005;
 }
 #content #item .small-photos li{
 	list-style:none;
@@ -385,7 +386,7 @@ body{
 	font-size:12px;
 	color:#868686;
 	margin-bottom:20px;
-	width:500px;
+
 }
 #content #item .brand{
 	margin-bottom:20px;		
