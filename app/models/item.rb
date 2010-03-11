@@ -15,6 +15,32 @@ class Item < ActiveRecord::Base
   named_scope :male, :conditions => ["gender != 0"]
   named_scope :published, :conditions => {:public => true}
   named_scope :random, :order => "rand()"
+  
+  
+  named_scope :for_size, lambda {|size| 
+      { 
+        :include => :availabilities, :joins => :availabilities,
+        :conditions => ["item_availabilities.size = ?", Item::SIZE.index(size)]
+      } if size
+    }
+  
+  named_scope :and_gender, lambda {|params|
+      if params
+        gender = params == "man" ? 1 : 0  
+        {:conditions => ["gender = #{gender} OR gender = 2"]}
+      end
+    }
+    
+  named_scope :price_range, lambda {|range|
+      if range == "<200"
+        {:conditions => {:price => (0..200)}}
+      elsif range ==  "200-300"
+        {:conditions => {:price => (200..300)}}
+      elsif range == "300>"
+        {:conditions => {:price => (300..1000)}}
+      end
+    }
+  
     
   belongs_to :brand
   belongs_to :category
