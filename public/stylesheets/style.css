@@ -115,6 +115,27 @@ body{
 	left:1050px;
 	top:220px;
 }
+#content #top .news{
+	border:1px solid #E1E1E1;
+	padding:10px;
+	width:419px;
+	height:300px;
+	z-index:96;
+}
+#content .news .date{
+	font-style:italic;
+	font-weight:bold;
+	font-size:12px;
+	color:#dab426;
+}
+#content .news .body{
+	font-size:14px;
+	color:#868686;
+	margin:0px 0px 10px 0px;
+}
+#content .news .body a{
+	color:#868686;
+}
 #content h1{
 	color:#0045B7;
 	font-size:24px;	
@@ -190,6 +211,10 @@ body{
 }
 #content .order-options div.border{
 	border-right:1px dashed #E1E1E1;
+}
+#content .order-options .error{
+	font-size:11px;	
+	color:#D04A2B;	
 }
 #content label{
 	display:block;
