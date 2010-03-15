@@ -447,7 +447,7 @@ body{
 }
 #content #item .description{
 	font-size:12px;
-	color:#868686;
+	color:#000;
 	margin-bottom:20px;
 
 }
@@ -527,5 +527,26 @@ body{
 }
 #content #similar-items li .price{
 	color: #D04A2B;
+	font-size:12px;
+}
+#content .brand-logo{
+	width:250px;
+}
+
+#content .brand-desc{
+	width:600px;
+	font-size:14px;
+
+}
+#content dl dt{
+	font-weight:bold;
+	font-style:italic;
+	color:#0045B7;
+	margin-bottom:5px;
+	font-size:14px;
+}
+#content dl dd{
+	color:;
+	margin-bottom:25px;
 	font-size:12px;
 }
