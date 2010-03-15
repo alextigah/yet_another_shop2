@@ -5,6 +5,7 @@ class Item < ActiveRecord::Base
   GENDER = %w[Девушки Парни Унисекс]
   SIZE = %w[S M L XL]
   STATUS = %w[blank hot sale]
+  COLORS = %w[white black grey red yellow green blue brown]
   cattr_reader :per_page
   @@per_page = 15  
   
@@ -33,6 +34,10 @@ class Item < ActiveRecord::Base
       end
     }
     
+  named_scope :and_color, lambda {|color|
+      {:conditions => ["color = ?", Item::COLORS.index(color)]} if Item::COLORS.include?(color)    
+    }  
+
   named_scope :price_range, lambda {|range|
       if range == "<200"
         {:conditions => {:price => (0..200)}}
@@ -43,6 +48,11 @@ class Item < ActiveRecord::Base
       end
     }
   
+  named_scope :and_brand, lambda {|brand|
+      brand_id = Brand.find_by_permalink(brand)
+      {:conditions => {:brand_id => brand_id}} if brand_id
+    }
+  
     
   belongs_to :brand
   belongs_to :category
@@ -50,17 +60,27 @@ class Item < ActiveRecord::Base
   has_many :availabilities, :class_name => "ItemAvailability"
   has_many :item_availabilities
   
+  has_many :photos, :class_name => "ItemPhoto"
+  has_many :item_photos
+  
+  
   validates_presence_of :title
   validates_presence_of :body
   validates_presence_of :price
   validates_presence_of :gender  
+  validates_presence_of :permalink
   validates_associated :brand
   validates_associated :category
   
+  after_save :make_permalink
+  
+  def make_permalink
+    permalink = title.gsub(',','').gsub('\\','-').gsub(" ",'-').gsub("#",'-') if permalink.blank?
+  end
   
   def link
     # "/items/#{self.id}"
-    "/shop/#{category.permalink}/#{self.id}-#{self.title}"
+    "/shop/#{category.permalink}/#{self.id}-#{self.permalink}"
   end
   
 end

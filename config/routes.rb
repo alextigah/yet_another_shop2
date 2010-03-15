@@ -10,10 +10,12 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :items do |items|
       items.resources :availabilities, :controller => 'item_availabilities'
       items.resources :item_availabilities
+      items.resources :photos, :controller => "item_photos"
+      items.resources :item_photos
     end
   end
     
-  map.connect 'shop/:permalink', :controller => 'categories'
+  map.category 'shop/:permalink', :controller => 'categories'
   map.connect 'shop/:permalink/:id', :controller => 'items', :action => 'show'
   
   map.resources :items    

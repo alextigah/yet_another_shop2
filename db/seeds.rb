@@ -11,6 +11,8 @@ Category.destroy_all
 Item.destroy_all
 Page.destroy_all
 Brand.destroy_all
+ItemAvailability.destroy_all
+ItemPhoto.destroy_all
 
 Page.populate(4) do |page|
   
@@ -24,6 +26,7 @@ end
 Brand.populate(5) do |brand|
   
   brand.title = Populator.words(1..3).capitalize
+  brand.permalink = brand.title.gsub(',','').gsub('\\','-').gsub(" ",'-').gsub("#",'-')  
   brand.body  = Populator.paragraphs(2..3)  
   brand.public = true
   
@@ -42,10 +45,12 @@ Category.populate(2) do |category|
     item.category_id = category.id
     item.title = Populator.words(1..3).capitalize
     item.body  = Populator.paragraphs(1..2)
-    item.price = 100 + rand(200)
+    item.price = 145 + rand(200)
     item.public = true
     item.brand_id = brands
     item.status = [0,1,2]
+    item.color = rand(Item::COLORS.size)
+    item.permalink = item.title.gsub(',','').gsub('\\','-').gsub(" ",'-').gsub("#",'-')
     
     ItemAvailability.populate(1..3) do |avail|
       avail.item_id = item.id      
@@ -83,6 +88,9 @@ end
     
   items = Item.all
   items.each do |item|
-    item.color_list = (%[белый черный красный желтый зеленый синий коричневый]).sort_by{ rand }.first      
     image_maker.call(item)  
+    3.times do |idx|
+      photo = item.photos.create
+      image_maker.call(photo)  
+    end
   end  
