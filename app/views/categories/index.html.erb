@@ -16,32 +16,7 @@
 
 <div id="content">
 	<%= render :partial => "shared/menu"%>
-	<div id="filters">
-		<a href="<%= remove_query "gender" %>"><span>все</span></a>
-		<a href="<%= make_query "gender", "man" %>" class="man">Парни</a>
-		<a href="<%= make_query "gender", "woman" %>" class="woman">Девушки</a>
-		<i class="f-separator">&nbsp;</i>
-
-		<a href="<%= remove_query "size" %>"><span>все</span></a>
-		<% for size in Item::SIZE %>
-			<a href="<%= make_query "size", size %>"><%= size %></a>
-		<% end %>
-		<i class="f-separator">&nbsp;</i>	
-		
-		<a href="<%= remove_query "price_range" %>"><span>все</span></a>
-		<a href="<%= make_query "price_range", "<200" %>">< 200грн</a>
-		<a href="<%= make_query "price_range", "200-300" %>">200-300грн</a>
-		<a href="<%= make_query "price_range", "300>" %>">300грн ></a>
-		<i class="f-separator">&nbsp;</i>
-		<div class="colors">
-			<a href="<%= remove_query "colors" %>"><span>все</span></a>
-			<% for color in Item::COLORS %>
-				<a href="<%= make_query "colors", color %>"><img src="/i/color_<%= color %>.png" width="15" height="15" border="0" alt="color <%= color %>"></a>			
-			<% end %>
-		</div>
-		<i class="f-separator">&nbsp;</i>
-		<%= select_tag 'brands', options_for_select([["все бренды", remove_query("brand")]] + Brand.published.collect {|u| [u.title, make_query("brand", u.permalink)]}, :selected => make_query("brand", params[:brand])) %>
-	</div>
+	<%= render :partial => "shared/filters"%>
 	<div class="goods">
 		<ul>
 			<%= render :partial => "items/item", :collection => @items %>
