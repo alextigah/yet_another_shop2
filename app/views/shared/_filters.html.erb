@@ -1,22 +1,22 @@
 <div id="filters">
-	<a href="<%= remove_query "gender" %>"><span>все</span></a>
+	<a href="<%= remove_query "gender" %>" class="active-filter">все</a>
 	<a href="<%= make_query "gender", "man" %>" class="man">Парни</a>
 	<a href="<%= make_query "gender", "woman" %>" class="woman">Девушки</a>
 	<i class="f-separator">&nbsp;</i>
 
-	<a href="<%= remove_query "size" %>"><span>все</span></a>
+	<a href="<%= remove_query "size" %>" class="active-filter">все</a>
 	<% for size in Item::SIZE %>
 		<a href="<%= make_query "size", size %>"><%= size %></a>
 	<% end %>
 	<i class="f-separator">&nbsp;</i>	
 	
-	<a href="<%= remove_query "price_range" %>"><span>все</span></a>
+	<a href="<%= remove_query "price_range" %>" class="active-filter">все</a>
 	<a href="<%= make_query "price_range", "<200" %>">< 200грн</a>
 	<a href="<%= make_query "price_range", "200-300" %>">200-300грн</a>
 	<a href="<%= make_query "price_range", "300>" %>">300грн ></a>
 	<i class="f-separator">&nbsp;</i>
 	<div class="colors">
-		<a href="<%= remove_query "colors" %>"><span>все</span></a>
+		<a href="<%= remove_query "colors" %>" class="active-filter">все</a>
 		<% for color in Item::COLORS %>
 			<a href="<%= make_query "colors", color %>"><img src="/i/color_<%= color %>.png" width="15" height="15" border="0" alt="color <%= color %>"></a>			
 		<% end %>
