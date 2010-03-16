@@ -5,6 +5,19 @@
 		{
 
 			$("#similar-items li:last-child").addClass("no-border");
+			
+			
+			$(".small-photos a").click(function(e)
+			{
+				$(".small-photos li").removeClass("current");
+				
+				
+				$(e.target).parent().parent().addClass("current");
+				
+				$("#large-photo").attr('src', $(e.target).parent().attr('href'));
+				
+				return false;
+			});
 
 		});
 	</script>
@@ -18,13 +31,14 @@
 	<div id="item">
 		<div class="item-images">
 			<div class="large-photo">
-				<img src="<%= @item.image.url %>" width="295" height="510" alt="<%= @item.title %>">
+				<img id="large-photo" src="<%= @item.image.url %>" width="295" height="510" alt="<%= @item.title %>">
 			</div>
 			<ul class="small-photos">
+				<li class="current"><a href="<%= @item.image.url %>"><img src="<%= @item.image.url(:small) %>" width="90" height="90" alt="<%= @item.title %>"></a></li>
 				<% for photo in @item.photos %>
 					<li><a href="<%= photo.image.url %>"><img src="<%= photo.image.url(:thumb) %>" width="90" height="90" alt="<%= @item.title %>"></a></li>
 				<% end %>
-				<!--				<li class="current"><img src="/images/tshirt_1_s.jpg" width="90" height="90" alt="<%= @item.title %>"></li> -->
+
 			</ul>
 		</div>
 		<div class="item-info">
