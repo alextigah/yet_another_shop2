@@ -565,6 +565,9 @@ body{
 	font-weight:bold;
 	margin-bottom:5px;
 }
+#content #text-page dl dt a{
+	color:#0045B7;	
+}
 #content #text-page dl dd{
 	font-style:italic;
 	font-size:14px;
