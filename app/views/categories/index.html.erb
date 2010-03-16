@@ -1,38 +1,22 @@
+<% content_for :head do %>
+
+	<script>
+		$(function()
+		{
+
+			$("#brands").change(function(e)
+			{
+				window.location = $(e.target).attr('value');
+			})
+
+		});
+	</script>
+
+<% end %>
+
 <div id="content">
 	<%= render :partial => "shared/menu"%>
-	<div id="filters">
-		<a href="<%= remove_query "gender" %>"><span>все</span></a>
-		<a href="<%= make_query "gender", "man" %>" class="man">Парни</a>
-		<a href="<%= make_query "gender", "woman" %>" class="woman">Девушки</a>
-		<i class="f-separator">&nbsp;</i>
-
-		<a href="<%= remove_query "size" %>"><span>все</span></a>
-		<% for size in Item::SIZE %>
-			<a href="<%= make_query "size", size %>"><%= size %></a>
-		<% end %>
-		<i class="f-separator">&nbsp;</i>	
-		
-		<a href="<%= remove_query "price_range" %>"><span>все</span></a>
-		<a href="<%= make_query "price_range", "<200" %>">< 200грн</a>
-		<a href="<%= make_query "price_range", "200-300" %>">200-300грн</a>
-		<a href="<%= make_query "price_range", "300>" %>">300грн ></a>
-		<i class="f-separator">&nbsp;</i>
-		<div class="colors">
-			<a href="<%= remove_query "colors" %>"><span>все</span></a>
-			<a href="#"><img src="/i/color_white.png" width="15" height="15" border="0" alt="color_white"></a>
-			<a href="#"><img src="/i/color_black.png" width="15" height="15" border="0" alt="color_white"></a>
-			<a href="#"><img src="/i/color_grey.png" width="15" height="15" border="0" alt="color_white"></a>
-			<a href="#"><img src="/i/color_red.png" width="15" height="15" border="0" alt="color_white"></a>
-			<a href="#"><img src="/i/color_yellow.png" width="15" height="15" border="0" alt="color_white"></a>
-			<a href="#"><img src="/i/color_green.png" width="15" height="15" border="0" alt="color_white"></a>
-			<a href="#"><img src="/i/color_light-blue.png" width="15" height="15" border="0" alt="color_white"></a>
-			<a href="#"><img src="/i/color_blue.png" width="15" height="15" border="0" alt="color_white"></a>
-			<a href="#"><img src="/i/color_pink.png" width="15" height="15" border="0" alt="color_white"></a>
-			<a href="#"><img src="/i/color_fuscia.png" width="15" height="15" border="0" alt="color_white"></a>		
-		</div>
-		<i class="f-separator">&nbsp;</i>	
-		<%= select_tag 'brands', options_for_select([["все бренды", -1]] + Brand.published.collect {|u| [u.title, u.id]}) %>
-	</div>
+	<%= render :partial => "shared/filters"%>
 	<div class="goods">
 		<ul>
 			<%= render :partial => "items/item", :collection => @items %>
@@ -41,7 +25,7 @@
 		</ul>
 	</div>
 	<div class="pages">
-		<%= will_paginate @items, :next_label => "следующая &rarr;", :prev_label => "&larr; предыдущая" %>
+		<%= will_paginate @items, :next_label => "следующая &rarr;", :previous_label => "&larr; предыдущая" %>
 		
 <!--		<span><span>&larr;</span> предыдущая</span>
 		<span class="numbers"><span class="current">1</span> <a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a></span>

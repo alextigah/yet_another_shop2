@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100308230227) do
+ActiveRecord::Schema.define(:version => 20100315173134) do
 
   create_table "brands", :force => true do |t|
     t.string   "title",                                :null => false
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20100308230227) do
     t.boolean  "public",             :default => true, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "permalink",                            :null => false
   end
 
   create_table "categories", :force => true do |t|
@@ -39,6 +40,16 @@ ActiveRecord::Schema.define(:version => 20100308230227) do
     t.datetime "updated_at"
   end
 
+  create_table "item_photos", :force => true do |t|
+    t.integer  "item_id",                            :null => false
+    t.string   "image_file_name",    :default => "", :null => false
+    t.string   "image_content_type", :default => "", :null => false
+    t.integer  "image_file_size",    :default => 0,  :null => false
+    t.integer  "position",           :default => 0,  :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "items", :force => true do |t|
     t.integer  "category_id"
     t.integer  "brand_id"
@@ -54,6 +65,8 @@ ActiveRecord::Schema.define(:version => 20100308230227) do
     t.boolean  "public",             :default => true, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "color",              :default => 0,    :null => false
+    t.string   "permalink",                            :null => false
   end
 
   create_table "order_items", :force => true do |t|
