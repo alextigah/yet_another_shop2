@@ -550,3 +550,15 @@ body{
 	margin-bottom:25px;
 	font-size:12px;
 }
+#content #text-page h2{
+	color:#D04A2B;
+}
+#content #text-page p{
+	
+}
+#content #text-page dl dt{
+	font-weight:bold;
+}
+#content #text-page dl dd{
+	font-style:italic;
+}
