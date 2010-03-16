@@ -555,7 +555,7 @@ body{
 }
 #content #text-page p{
 	font-size:14px;
-	margin-bottom:15px;
+	margin-bottom:25px;
 }
 #content #text-page a{
 	font-size:14px;
@@ -571,7 +571,7 @@ body{
 #content #text-page dl dd{
 	font-style:italic;
 	font-size:14px;
-	margin-bottom:15px;
+	margin-bottom:20px;
 }
 #content #text-page dl dd img{
 	display:block;
