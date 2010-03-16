@@ -572,4 +572,6 @@ body{
 }
 #content #text-page dl dd img{
 	display:block;
+	float:left;
+	margin-right:10px;
 }
