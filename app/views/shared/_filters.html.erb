@@ -24,7 +24,7 @@
 	<a href="<%= make_query "price_range", "200-300" %>">200-300грн</a>
 	<a href="<%= make_query "price_range", "300>" %>">300грн ></a> -->
 
-	<%= make_queries "price_range", %w[<200 200-300 300>], ["< 200", "200-300","300 >"], :format => "%sгрн" %>
+	<%= make_queries "price_range", %w[<200 200-300 300>], ["< 200", "200-300","300 > "], :format => "%sгрн" %>
 
 	
 	<i class="f-separator">&nbsp;</i>
