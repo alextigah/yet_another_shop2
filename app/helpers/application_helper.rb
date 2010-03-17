@@ -14,6 +14,16 @@ module ApplicationHelper
       "active"
     end
   end
+  
+  def make_queries(param, keys, titles, options = {})
+    format = options[:format] || "%s"
+    classes = options[:classes]
+    concat(link_to("все", remove_query(param), :class => (params[param] == nil ? "active-filter" : "")))   
+    keys.each_with_index do |key, idx|
+      concat(link_to (titles[idx] ? (format % titles[idx]) : key), make_query(param, key), :class => ((params[param] == key ? "active-filter" : "") + " " + (classes != nil ? classes[idx] : "" ))   )
+    end
+    ""
+  end
 
 	def make_query(key, value)
     if !params[key.to_sym]
