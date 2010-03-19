@@ -1,5 +1,35 @@
+<% content_for :head do %>
+
+	<script>
+		$(function()
+		{
+
+			$("input[name='order[shipping_type]']").click(function(e)
+			{
+				alert($(e.target).attr('value'));
+				
+			});
+			
+			
+			$("#order_city").change(function()
+			{
+				if(parseInt($(this).attr('value')) == 0)
+				{
+					// $(".order-options")[0].insert
+					$("<input>").attr('name', 'order[city]').attr('size', '47').insertAfter(this);
+					$("#delivery_price").hide();
+					$(this).remove();
+				}
+			});
+			
+
+		});
+		
+	</script>
+	
+<% end %>	
 <div id="content">
-	<div class="back-nav"><a href="<% %>"><span>&larr;</span>обратно в магазин</a></div>
+	<div class="back-nav"><a href="javascript:history.go(-1);"><span>&larr;</span> обратно в магазин</a></div>
 
 	<% if @order.items.count > 0 %>
 		<div class="cart-items">
@@ -13,7 +43,7 @@
 					<td><%= link_to 'удалить', order_item_path(item), :method => :delete, :confirm => "Вы уверены?", :class => "delete-button" %></td>
 				</tr>
 				<% end %>
-				<tr>
+				<tr id="delivery_price">
 					<td><img src="i/delivery-icon.jpg" width="72" height="72" border="0" alt=""></td>
 					<td>Доставка курьер по Киеву</td>
 					<td>0грн</td>
@@ -31,7 +61,7 @@
 					<%= f.label :user_name, 'Имя, фамилия' %><%= f.text_field :user_name %>
 					<%= f.label :user_name, 'Электронаая почта' %><%= f.text_field :email %>
 					<%= f.label :user_name, 'Мобильный телефон' %><%= f.text_field :phone %>
-					<%= f.label :city, 'Город' %><%= f.select :city, '<option>Киев</option>' %>
+					<%= f.label :city, 'Город' %><%= f.select :city, '<option value="Киев">Киев</option><option value="0">другой</option>' %>
 					<%= f.label :address, 'Адрес' %><%= f.text_area :address, :rows => "3" %>
 					<p class="note">поля выше обязательны для заполнения</p>
 				</div>
