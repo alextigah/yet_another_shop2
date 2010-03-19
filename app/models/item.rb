@@ -68,14 +68,14 @@ class Item < ActiveRecord::Base
   validates_presence_of :body
   validates_presence_of :price
   validates_presence_of :gender  
-  validates_presence_of :permalink
+  # validates_presence_of :permalink, :allow_blank => true
   validates_associated :brand
   validates_associated :category
   
   after_save :make_permalink
   
   def make_permalink
-    permalink = title.gsub(',','').gsub('\\','-').gsub(" ",'-').gsub("#",'-') if permalink.blank?
+    self.update_attribute(:permalink, title.gsub(',','').gsub('\\','-').gsub(" ",'-').gsub("#",'-')) if permalink.blank?
   end
   
   def link
