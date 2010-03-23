@@ -1,6 +1,15 @@
 <% content_for :head do %>
 
 	<script>
+		
+		function int_inc(selector, amount)
+		{
+			var old_value = parseInt($(selector).text());
+			$(selector).text( old_value + amount);
+		}
+	
+	
+	
 		$(function()
 		{
 
@@ -25,32 +34,52 @@
 					$("<input>").attr('name', 'order[city]').attr('size', '47').insertAfter(this);
 					// $("#delivery_price").hide();
 					$(this).remove();
+	
+					if (parseInt($("#delivery_price").text()) == 0)
+					{
+						int_inc("#summ_price", 15);
+					}	
 					
 					$("#shipping_type_0").hide();
 					$("#shipping_type_1").hide();
 					$("#shipping_type_2").show();
 					$("#order_shipping_type_2").attr("checked", true); 
 					$("#delivery_price").text("15");
+					
+
 															
 				}
 				else if(value != "Киев")
 				{
+
+					if (parseInt($("#delivery_price").text()) == 0)
+					{
+						int_inc("#summ_price", 15);
+					}
+
 					
 					$("#shipping_type_0").hide();
 					$("#shipping_type_1").hide();
 					$("#shipping_type_2").show();
 					$("#order_shipping_type_2").attr("checked", true); 
-					$("#delivery_price").text("15");
+					$("#delivery_price").text("15");				
+					
+				
 					
 				}
 				else if(value == "Киев")
 				{
+					
+					if (parseInt($("#delivery_price").text()) > 0)
+					{
+						int_inc("#summ_price", -15);
+					}					
 
 					$("#shipping_type_0").show();
 					$("#shipping_type_1").show();
 					$("#shipping_type_2").hide();					
 					$("#order_shipping_type_1").attr("checked", true); 
-					$("#delivery_price").text("0");					
+					$("#delivery_price").text("0");							
 
 					
 				}
@@ -85,7 +114,7 @@
 					<td>&nbsp;</td>
 				</tr>
 			</table>
-			<div>Всего к оплате <span><%= price_print @order.items.collect {|i| i.item.price}.sum %>грн</span> Скидочный купон <input type="text" id="discount"> <span class="note">6 значное число</span></div>
+			<div>Всего к оплате <span><span id="summ_price"><%= price_print @order.items.collect {|i| i.item.price}.sum %></span>грн</span> Скидочный купон <input type="text" id="discount"> <span class="note">6 значное число</span></div>
 		</div>
 	
 		<% form_for @order, :url => orders_path do |f| %>
