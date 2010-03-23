@@ -212,6 +212,9 @@ body{
 	width:auto;
 	margin:0px 5px 20px 0px;
 }
+#content .order-options #payment_type_0{
+	margin:0;	
+}
 #content .order-options div.border{
 	border-right:1px dashed #E1E1E1;
 }
