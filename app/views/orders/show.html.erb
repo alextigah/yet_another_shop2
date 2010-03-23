@@ -39,43 +39,35 @@
 				
 				var value = $(this).attr('value');
 				
-				if(parseInt(value) == 0)
-				{
-					// $(".order-options")[0].insert
-					$("<input>").attr('name', 'order[city]').attr('size', '47').insertAfter(this);
-					// $("#delivery_price").hide();
-					$(this).remove();
-	
-					if (parseInt($("#delivery_price").text()) == 0)
-					{
-						int_inc("#summ_price", 15);
-					}	
-					
-					$("#shipping_type_0").hide();
-					$("#shipping_type_1").hide();
-					$("#shipping_type_2").show();
-					$("#order_shipping_type_2").attr("checked", true); 
-					$("#delivery_price").text("15");
-					
-
-															
-				}
-				else if(value != "Киев")
+				if(value != "Киев")
 				{
 
 					if (parseInt($("#delivery_price").text()) == 0)
 					{
 						int_inc("#summ_price", 15);
 					}
-
 					
 					$("#shipping_type_0").hide();
 					$("#shipping_type_1").hide();
 					$("#shipping_type_2").show();
 					$("#order_shipping_type_2").attr("checked", true); 
-					$("#delivery_price").text("15");				
+					$("#delivery_price").text("15");			
 					
-				
+					
+					if($("#order_payment_type_0").attr('checked') == true)
+						$("#order_payment_type_2").attr('checked', true);	
+					
+					$("#order_payment_type_0").attr('disabled', true);
+					
+					
+					
+					
+					
+					if(parseInt(value) == 0)
+					{
+						$("<input>").attr('name', 'order[city]').attr('size', '47').insertAfter(this);
+						$(this).remove();
+					}
 					
 				}
 				else if(value == "Киев")
@@ -91,6 +83,8 @@
 					$("#shipping_type_2").hide();					
 					$("#order_shipping_type_1").attr("checked", true); 
 					$("#delivery_price").text("0");							
+					
+					$("#order_payment_type_0").attr('disabled', false);
 
 					
 				}
