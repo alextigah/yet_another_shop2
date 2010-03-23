@@ -1,5 +1,7 @@
 class Order < ActiveRecord::Base
   
+  CITIES = %w[Киев Винница Днепропетровск Донецк Житомир Запорожье Ивано-Франковск Кировоград Луганск Луцк Львов Николаев Одесса Полтава Ровно Сумы Тернополь Ужгород Харьков Херсон Хмельницкий Черкассы Чернигов Черновцы]
+  
   has_many :items, :class_name => "OrderItem"
   
   validates_presence_of :user_name, :on => :update
