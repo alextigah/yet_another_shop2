@@ -187,6 +187,9 @@ body{
 	font-size:18px;	
 	padding:0px 40px 0px 0px;
 }
+#content .cart-items div span.summ_price{
+	padding:0px 40px 0px 0px;	
+}
 #content .cart-items #discount{
 	width:45px;	
 }
