@@ -14,11 +14,22 @@
 		{
 
 			$("#shipping_type_2").hide();
+			$("#order_shipping_type_1").attr("checked", true); 
 
 
 			$("input[name='order[shipping_type]']").click(function(e)
 			{
 				// alert($(e.target).attr('value'));
+					var value = $(e.target).attr('value');
+					if(parseInt(value) == 0)
+					{
+						$("#shipping_title").text("Самовывоз");
+					}
+					else
+					{
+						$("#shipping_title").text("Доставка курьером");						
+					}
+					
 				
 			});
 			
@@ -109,7 +120,7 @@
 				<% end %>
 				<tr>
 					<td><img src="i/delivery-icon.jpg" width="72" height="72" border="0" alt=""></td>
-					<td>Доставка курьером</td>
+					<td id="shipping_title">Доставка курьером</td>
 					<td><span id="delivery_price">0</span>грн</td>
 					<td>&nbsp;</td>
 				</tr>
@@ -136,7 +147,7 @@
 						<div><%= f.radio_button :shipping_type, 0 %></div><div class="left"><label>Самовывоз<span>Магазин на м. Крещатик</span></label></div><br class="clearfix" />			
 					</div>
 					<div id="shipping_type_1">
-						<div><%= f.radio_button :shipping_type, 1 %></div><div class="left"><label>Курьером по Киеву<span>бесплатно</span></label></div><br class="clearfix" />
+						<div><%= f.radio_button :shipping_type, 1, :html => {:checked => true} %></div><div class="left"><label>Курьером по Киеву<span>бесплатно</span></label></div><br class="clearfix" />
 					</div>
 					<div id="shipping_type_2">
 						<div><%= f.radio_button :shipping_type, 2 %></div><div class="left"><label>Курьером по Украине<span>15грн +</span></label></div><br class="clearfix" />
