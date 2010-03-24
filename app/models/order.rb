@@ -13,7 +13,14 @@ class Order < ActiveRecord::Base
   validates_format_of :email, :with => Authlogic::Regex.email, :on => :update
   
   
+  def total_amount
+    sum = items.collect {|i| i.item.price}.sum.to_i
+    sum += 15 if !city.blank? && city != CITIES.first
+    sum
+  end
+  
   named_scope :approved, :conditions => {:state => "approved"}
+  named_scope :paid, :conditions => {:state => "paid"}
   
   include AASM
   
@@ -22,9 +29,14 @@ class Order < ActiveRecord::Base
   
   aasm_state :pending
   aasm_state :approved  
+  aasm_state :paid
   
   aasm_event :approve do 
     transitions :to => :approved, :from => [:pending]
+  end
+  
+  aasm_event :pay do
+    transitions :to => :paid, :from => [:pending, :approved]
   end
     
 end

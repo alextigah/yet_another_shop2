@@ -19,8 +19,9 @@ class Payments::LiqpayController < ApplicationController
       render :text => "транзакция на стадии проверки"
     when "success"
       if signature == params[:signature]
-        # ORDER PAY
-        render :text => "ok"
+        order = Order.find(params[:order_id])
+        order.pay!
+        redirect_to payment_success_orders_path
       end
     else
       render :text => "транзакция отменена"

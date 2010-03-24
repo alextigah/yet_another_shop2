@@ -16,11 +16,22 @@ class OrdersController < ApplicationController
         when 2
           redirect_to privatmoney_orders_path
         when 3
-          redirect_to payments_liqpay_path + "?order_id=" + @order.id.to_s + "&user_name=" + @order.user_name  + "&amount=3"
+          redirect_to payments_liqpay_path + "?order_id=" + @order.id.to_s + "&user_name=" + @order.user_name  + "&amount=" + @order.total_amount.to_s
         end
     else
       render :show
     end
   end    
+  
+  
+  def success
+    @body = "Вы успешно оформили заказ. В ближайшее время с вами свяжется менеджер!"
+    render :action => "result"
+  end
+  
+  def payment_success
+    @body = "Вы успешно оплатили заказ. В ближайшее время с вами свяжется менеджер!"    
+    render :action => "result"
+  end
     
 end
