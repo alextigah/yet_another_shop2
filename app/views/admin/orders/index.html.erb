@@ -14,6 +14,7 @@
 					<th>Статус</th>
 					<th>Тип доставки</th>					
 					<th>Время</th>
+					<th>Сумма</th>
           <th class="last">&nbsp;</th>
         </tr>
         <% @orders.each do |order| -%>
@@ -30,6 +31,9 @@
 					<td>
             <%= order.created_at.strftime("%H:%M %d.%m.%y") %>
           </td>
+					<td>
+						<%= order.total_amount %>
+					</td>
           <td class="last">
             <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_admin_order_path(order) %> |
             <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", admin_order_path(order), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
