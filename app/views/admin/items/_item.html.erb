@@ -1,0 +1,21 @@
+<tr class="<%= cycle("odd", "even") %>">
+	<td>
+		<%= image_tag(item.image.url, :height => "150px") if item.image.exists?  %>
+	</td>
+	<td>
+		<%= link_to item.title, admin_item_path(item) %>
+	</td>
+	<td>
+		<%= item.price %>
+	</td>					
+	<td>
+		<%= item.availabilities.collect {|a| "#{Item::SIZE[a.size]}(#{a.quantity})"}.join(", ") %>
+	</td>
+  <td class="last">
+		<%= link_to 'Фото',  admin_item_photos_path(item) %> |	
+		<%= link_to 'Наличие',  admin_item_availabilities_path(item) %> |
+    <%= link_to "#{t("web-app-theme.show", :default => "Show")}", admin_item_path(item) %> |
+    <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_admin_item_path(item) %> |
+    <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", admin_item_path(item), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+  </td>
+</tr>
