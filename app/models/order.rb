@@ -28,6 +28,7 @@ class Order < ActiveRecord::Base
   
   named_scope :approved, :conditions => {:state => "approved"}
   named_scope :paid, :conditions => {:state => "paid"}
+  named_scope :not_state, lambda {|state| {:conditions => ["state != ?", state]}}
   
   include AASM
   
