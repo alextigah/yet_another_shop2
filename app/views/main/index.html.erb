@@ -1,10 +1,12 @@
 <div id="content">
 	<%= render :partial => "shared/menu"%>
 	<div id="top">
-		<div class="p-text">Весна в магазине Shuttle: сидки на все футболки 20%</div>
+		<% if @sale %>
+		<div class="p-text"><%= @sale.title %></div>
 		<div class="popular left">
-			<div class="p-pic"><img src="/images/popular1.jpg" width="563" height="425" alt=""></div>
+			<div class="p-pic"><img src="<%= @sale.image.url %>" width="563" height="425" alt=""></div>
 		</div>
+		<% end %>
 		<div>
 			<div class="twitter-bird"><img src="/i/twitter-logo.png"></div>
 			<div class="news left">

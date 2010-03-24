@@ -26,7 +26,7 @@
 				  <li class="<%= controller.controller_path == 'admin/categories' ? 'active' : '' %>"><a href="<%= admin_categories_path %>">Категории</a></li>					
 				  <li class="<%= controller.controller_path == 'admin/pages' ? 'active' : '' %>"><a href="<%= admin_pages_path %>">Страницы</a></li> 
 				  <li class="<%= controller.controller_path =~ /admin\/item/ ? 'active' : '' %>"><a href="<%= admin_items_path %>">Товары</a></li> 
-				  <li class="<%= controller.controller_path == 'admin/orders' ? 'active' : '' %>"><a href="<%= admin_orders_path %>">Orders</a></li></ul>
+				  <li class="<%= controller.controller_path == 'admin/orders' ? 'active' : '' %>"><a href="<%= admin_orders_path %>">Orders</a></li> <li class="<%= controller.controller_path == 'admin/sales' ? 'active' : '' %>"><a href="<%= admin_sales_path %>">Sales</a></li></ul>
       </div>
     </div>    
     <div id="wrapper" class="wat-cf">

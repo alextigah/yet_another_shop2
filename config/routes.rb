@@ -7,6 +7,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :categories
     admin.resources :brands
     admin.resources :pages
+    admin.resources :sales
     admin.resources :items do |items|
       items.resources :availabilities, :controller => 'item_availabilities'
       items.resources :item_availabilities
