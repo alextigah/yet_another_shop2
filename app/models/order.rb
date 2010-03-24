@@ -1,6 +1,13 @@
 class Order < ActiveRecord::Base
   
   CITIES = %w[Киев Винница Днепропетровск Донецк Житомир Запорожье Ивано-Франковск Кировоград Луганск Луцк Львов Николаев Одесса Полтава Ровно Сумы Тернополь Ужгород Харьков Херсон Хмельницкий Черкассы Чернигов Черновцы]
+  SHIPPING = %w[Самовывоз Киев Курьером]
+  PAYMENT = %w[Наличными WebMoney PrivatMoney LiqPay]
+  STATES = {
+    :pending => "новый",
+    :approved => "подтвержденный",
+    :paid => "оплачен"
+  }
   
   has_many :items, :class_name => "OrderItem"
   

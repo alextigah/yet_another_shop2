@@ -11,25 +11,26 @@
       <table class="table">
         <tr>             
           <th class="first">ID</th>
-										<th>
-					<%= t("activerecord.attributes.admin_order.shipping_type", :default => t("activerecord.labels.shipping_type", :default => "Shipping_type")) %>
-</th>
-					          <th><%= t("web-app-theme.created_at", :default => "Created at")  %></th>
+					<th>Статус</th>
+					<th>Тип доставки</th>					
+					<th>Время</th>
           <th class="last">&nbsp;</th>
         </tr>
         <% @orders.each do |order| -%>
         <tr class="<%= cycle("odd", "even") %>">
           <td>
-            <%= order.id %>
+            <%= link_to order.id, admin_order_path(order) %>
           </td>
-										<td>
-						<%= link_to order.shipping_type, admin_order_path(order) %>
+					<td>
+						<%= Order::STATES[order.state.to_sym] %>
 					</td>
-										<td>
-            <%= order.created_at %>
+					<td>
+						<%= Order::SHIPPING[order.shipping_type] %>
+					</td>					
+					<td>
+            <%= order.created_at.strftime("%H:%M %d.%m.%y") %>
           </td>
           <td class="last">
-            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", admin_order_path(order) %> |
             <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_admin_order_path(order) %> |
             <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", admin_order_path(order), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
           </td>
