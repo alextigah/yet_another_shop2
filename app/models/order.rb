@@ -30,6 +30,8 @@ class Order < ActiveRecord::Base
   named_scope :paid, :conditions => {:state => "paid"}
   named_scope :not_state, lambda {|state| {:conditions => ["state != ?", state]}}
   
+  default_scope :order => "created_at DESC"
+  
   include AASM
   
   aasm_column :state  
