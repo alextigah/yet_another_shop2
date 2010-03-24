@@ -14,6 +14,8 @@ ActionController::Routing::Routes.draw do |map|
       items.resources :item_photos
     end
   end
+  
+
     
   map.category 'shop/:permalink', :controller => 'categories'
   map.connect 'shop/:permalink/:id', :controller => 'items', :action => 'show'
@@ -24,6 +26,10 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :order_items
   map.resource :orders, :member => {:success => :get}
   map.root :controller => 'categories'
+  
+  map.namespace :payments do |payment|
+    payment.resource :liqpay, :member => {:reply => :post}
+  end  
   
   # The priority is based upon order of creation: first created -> highest priority.
 
