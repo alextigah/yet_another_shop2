@@ -20,7 +20,7 @@ class Payments::LiqpayController < ApplicationController
     when "success"
       if signature == params[:signature]
         order = Order.find(params[:order_id])
-        order.pay!
+        order.pay! unless order.paid?
         redirect_to payment_success_orders_path
       end
     else
