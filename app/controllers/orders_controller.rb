@@ -16,7 +16,7 @@ class OrdersController < ApplicationController
         when 2
           redirect_to privatmoney_orders_path
         when 3
-          redirect_to payments_liqpay_path + "?order_id=" + @order.id.to_s + "&user_name=" + @order.user_name  + "&amount=5"
+          redirect_to payments_liqpay_path + "?order_id=" + @order.id.to_s + "&user_name=" + @order.user_name  + "&amount=3"
         end
     else
       render :show

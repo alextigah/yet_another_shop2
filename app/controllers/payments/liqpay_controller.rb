@@ -1,5 +1,8 @@
 class Payments::LiqpayController < ApplicationController
   
+  protect_from_forgery :except => [:reply]
+  
+  
   def show
     create
   end
