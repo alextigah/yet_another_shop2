@@ -28,7 +28,7 @@ ActionController::Routing::Routes.draw do |map|
   map.root :controller => 'main'
   
   map.namespace :payments do |payment|
-    payment.resource :liqpay, :member => {:reply => :post}
+    payment.resource :liqpay, :member => {:reply => :post}, :controller => 'liqpay'
   end  
   
   # The priority is based upon order of creation: first created -> highest priority.

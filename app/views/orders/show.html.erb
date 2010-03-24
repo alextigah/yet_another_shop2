@@ -132,7 +132,7 @@
 					<h3>Контактная информация</h3>
 					<%= f.label :user_name, 'Имя, фамилия' %><%= f.text_field :user_name %>
 					<%= f.label :user_name, 'Электронаая почта' %><%= f.text_field :email %>
-					<%= f.label :user_name, 'Мобильный телефон' %><%= f.text_field :phone %>
+					<%= f.label :user_name, 'Мобильный телефон' %><%= f.text_field :phone 	%>
 					<%= f.label :city, 'Город' %>
 					<%= f.select :city, Order::CITIES.collect {|c| [c,c]} << ["другой", 0] %>
 					<%= f.label :address, 'Адрес' %><%= f.text_area :address, :rows => "3" %>

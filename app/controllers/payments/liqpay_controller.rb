@@ -1,5 +1,9 @@
 class Payments::LiqpayController < ApplicationController
   
+  def show
+    create
+  end
+  
   def create
     server = URI.parse "https://liqpay.com"
     server.query = URI.encode query(params[:amount]).map {|k,v| "#{k}=#{v}"}.join("&")
@@ -30,8 +34,8 @@ class Payments::LiqpayController < ApplicationController
         :version => "1.1",
         :merchant_id => "i7621615620",
         :currency => "UAH",
-        :description => " " + current_user.name,
-        :order_id => current_user.id,
+        :description => "Оплата товаров для " + params[:user_name],
+        :order_id => params[:order_id],
         :amount => amount
       }
     end
