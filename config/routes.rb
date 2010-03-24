@@ -25,7 +25,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :brands
   map.resources :order_items
   map.resource :orders, :member => {:success => :get}
-  map.root :controller => 'categories'
+  map.root :controller => 'main'
   
   map.namespace :payments do |payment|
     payment.resource :liqpay, :member => {:reply => :post}

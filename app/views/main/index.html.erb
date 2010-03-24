@@ -1,0 +1,30 @@
+<div id="content">
+	<%= render :partial => "shared/menu"%>
+	<div id="top">
+		<div class="p-text">Весна в магазине Shuttle: сидки на все футболки 20%</div>
+		<div class="popular left">
+			<div class="p-pic"><img src="/images/popular1.jpg" width="563" height="425" alt=""></div>
+		</div>
+		<div>
+			<div class="twitter-bird"><img src="/i/twitter-logo.png"></div>
+			<div class="news left">
+				<% for message in @messages %>
+					<p class="date"><%= Date.parse(message.created_at).strftime("%d.%m.%y")%></p>
+					<p class="body"><%= message.text %></p>
+				<% end %>
+			</div>
+		</div>
+		<br class="clearfix"/>
+	</div>
+	
+	<div class="goods">
+		<h2>Новинки</h2>
+		<ul>
+
+			<%= render :partial => "items/item", :collection => @items %>
+			
+
+			<br class="clearfix"/>				
+		</ul>
+	</div>
+</div>
