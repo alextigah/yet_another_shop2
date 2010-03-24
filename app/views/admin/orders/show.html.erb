@@ -11,17 +11,12 @@
       
         <p>
           <b><%= t("activerecord.attributes.admin_order.shipping_type", :default => t("activerecord.labels.shipping_type", :default => "Shipping type")) %>:</b>
-          <%= @order.shipping_type %>
+          <%= Order::SHIPPING[@order.shipping_type] %>
         </p>
 
         <p>
           <b><%= t("activerecord.attributes.admin_order.payment_type", :default => t("activerecord.labels.payment_type", :default => "Payment type")) %>:</b>
-          <%= @order.payment_type %>
-        </p>
-
-        <p>
-          <b><%= t("activerecord.attributes.admin_order.code", :default => t("activerecord.labels.code", :default => "Code")) %>:</b>
-          <%= @order.code %>
+          <%= Order::PAYMENT[@order.payment_type] %>
         </p>
 
         <p>
@@ -53,10 +48,36 @@
           <b><%= t("activerecord.attributes.admin_order.comments", :default => t("activerecord.labels.comments", :default => "Comments")) %>:</b>
           <%= @order.comments %>
         </p>
+
+				<p>
+					<b>Всего к оплате</b>
+					<%= @order.total_amount %>
+				</p>
       <div class="wat-cf">
         <%= link_to "#{image_tag("web-app-theme/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}")} #{t("web-app-theme.edit", :default=> "Edit")}", edit_admin_order_path(@order), :class => "button" %> 
         <%= link_to "#{image_tag("web-app-theme/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}")} #{t("web-app-theme.delete", :default => "Delete")}", admin_order_path(@order), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
       </div>      
+
+			<br />
+      <table class="table">
+        <tr>             
+					<th class="first">
+						<%= t("activerecord.labels.image", :default => "Image") %>
+					</th>
+					<th>
+						<%= t("activerecord.labels.title", :default => "Title") %>
+					</th>
+					<th>
+						<%= t("activerecord.labels.price", :default => "Price") %>
+					</th>					
+					<th>
+						<%= t("activerecord.labels.item_availability", :default => "Item Availability") %>
+					</th>										
+          <th class="last">&nbsp;</th>
+        </tr>
+			<%= render :partial => "admin/items/item", :collection => @order.items.collect {|i| i.item} %>
+			</table>
+
     </div>
   </div>
 </div>
