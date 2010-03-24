@@ -25,7 +25,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :pages
   map.resources :brands
   map.resources :order_items
-  map.resource :orders, :member => {:success => :get, :payment_success => :get}
+  map.resource :orders, :member => {:success => :get, :payment_success => :get, :waiting_for_payment => :get, :payment_error => :get}
   map.root :controller => 'main'
   
   map.namespace :payments do |payment|

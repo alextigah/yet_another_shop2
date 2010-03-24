@@ -16,7 +16,7 @@ class Payments::LiqpayController < ApplicationController
   def reply
     case params[:status] 
     when "wait_secure"
-      render :text => "транзакция на стадии проверки"
+      redirect_to waiting_for_payment_orders_path
     when "success"
       if signature == params[:signature]
         order = Order.find(params[:order_id])
@@ -24,7 +24,7 @@ class Payments::LiqpayController < ApplicationController
         redirect_to payment_success_orders_path
       end
     else
-      render :text => "транзакция отменена"
+      redirect_to payment_error_orders_path
     end
   end
   

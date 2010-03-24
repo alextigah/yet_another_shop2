@@ -33,5 +33,15 @@ class OrdersController < ApplicationController
     @body = "Вы успешно оплатили заказ. В ближайшее время с вами свяжется менеджер!"    
     render :action => "result"
   end
+  
+  def waiting_for_payment
+    @body = "Вы оплатили заказ. После прохождения заказа банковской провери с вами свяжется менеджер!"    
+    render :action => "result"
+  end
+  
+  def payment_error
+    @body = "К сожалению при оплате заказа возникли какие-то проблемы, попробуйте позже или используйте другой спопоб оплаты."
+    render :action => "result"    
+  end
     
 end
