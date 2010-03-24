@@ -187,6 +187,9 @@ body{
 	font-size:18px;	
 	padding:0px 40px 0px 0px;
 }
+#content .cart-items div span#summ_price{
+	padding:0px 0px 0px 0px;	
+}
 #content .cart-items #discount{
 	width:45px;	
 }
@@ -208,6 +211,10 @@ body{
 	height:auto;
 	width:auto;
 	margin:0px 5px 20px 0px;
+}
+#content .order-options #payment_type_0{
+	margin:0;
+	float:none;
 }
 #content .order-options div.border{
 	border-right:1px dashed #E1E1E1;
