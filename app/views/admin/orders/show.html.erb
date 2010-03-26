@@ -9,6 +9,7 @@
   <div class="content">
     <div class="inner">
       
+     <% form_for @order, :url => admin_order_path(@order), :html => { :class => :form } do |f| -%> 
         <p>
           <b><%= t("activerecord.attributes.admin_order.shipping_type", :default => t("activerecord.labels.shipping_type", :default => "Shipping type")) %>:</b>
           <%= Order::SHIPPING[@order.shipping_type] %>
@@ -43,19 +44,28 @@
           <b><%= t("activerecord.attributes.admin_order.address", :default => t("activerecord.labels.address", :default => "Address")) %>:</b>
           <%= @order.address %>
         </p>
-
-        <p>
-          <b><%= t("activerecord.attributes.admin_order.comments", :default => t("activerecord.labels.comments", :default => "Comments")) %>:</b>
-          <%= @order.comments %>
-        </p>
-
 				<p>
 					<b>Всего к оплате</b>
 					<%= @order.total_amount %>
 				</p>
+				
+				<p>
+				  <%= f.label :state, "Статус", :class => :label %>
+			    <%= f.select :state, Order::STATES.keys.collect {|k|  [Order::STATES[k], k] }, :selected => @order.state.to_sym ,:class => 'text_field' %>
+				</p>
+				
+				<p>
+			    <%= f.label :comments, t("activerecord.attributes.order.comments", :default => "Comments"), :class => :label %>
+			    <%= f.text_area :comments, :class => '', :rows => "10", :cols => "100" %>
+			  </p>
+				
+			  <input type="submit" class="button" value="Save &rarr;" />
+				
+			<% end %>
+
+			<br />
       <div class="wat-cf">
         <%= link_to "#{image_tag("web-app-theme/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}")} #{t("web-app-theme.edit", :default=> "Edit")}", edit_admin_order_path(@order), :class => "button" %> 
-        <%= link_to "#{image_tag("web-app-theme/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}")} #{t("web-app-theme.delete", :default => "Delete")}", admin_order_path(@order), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
       </div>      
 
 			<br />
