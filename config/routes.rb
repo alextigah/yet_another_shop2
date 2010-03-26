@@ -3,7 +3,7 @@ ActionController::Routing::Routes.draw do |map|
   
   map.connect 'admin', :controller => 'admin/categories'
   map.namespace :admin do |admin|
-    admin.resources :orders
+    admin.resources :orders, :member => {:cancel => :get}
     admin.resources :categories
     admin.resources :brands
     admin.resources :pages

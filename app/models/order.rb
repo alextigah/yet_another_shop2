@@ -38,16 +38,21 @@ class Order < ActiveRecord::Base
   
   default_scope :order => "created_at DESC"
   
+  
+  def item_availability_back
+    logger.info "back items"
+  end
+  
   include AASM
   
   aasm_column :state  
   aasm_initial_state :pending
   
   aasm_state :pending
-  aasm_state :approved
+  aasm_state :approved#, :enter => 
   aasm_state :delivered
   aasm_state :confirmed
-  aasm_state :canceled  
+  aasm_state :canceled, :enter => :item_availability_back
   aasm_state :paid
   
   aasm_event :approve do 

@@ -66,6 +66,8 @@
 			<br />
       <div class="wat-cf">
         <%= link_to "#{image_tag("web-app-theme/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}")} #{t("web-app-theme.edit", :default=> "Edit")}", edit_admin_order_path(@order), :class => "button" %> 
+
+				<%= link_to (image_tag("web-app-theme/cross.png") +" ОТМЕНИТЬ ЗАКАЗ", cancel_admin_order_path(@order),  :class => "button") %>
       </div>      
 
 			<br />
