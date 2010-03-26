@@ -4,10 +4,16 @@ class Order < ActiveRecord::Base
   SHIPPING = %w[Самовывоз Киев Курьером]
   PAYMENT = %w[Наличными WebMoney PrivatMoney LiqPay]
   STATES = {
-    :pending => "новый",
-    :approved => "подтвержденный",
-    :paid => "оплачен"
+    :pending => "не оформлен",
+    :approved => "новый",
+    :confirmed => "подтвержден",
+    :paid => "оплачен",
+    :delivered => "доставлен",
+    :canceled => "отменен"
   }
+  
+  #Новый - заказ добавлен пользователем, Подтвержден - когда я пообщался с человеком, и он ждет доставки или я например жду от него денег, 
+  #Оплачен - когда человек оплатил заказ, Оплачен и Доставлен - когда все действия выполнены, Отменен
   
   has_many :items, :class_name => "OrderItem"
   
@@ -38,7 +44,10 @@ class Order < ActiveRecord::Base
   aasm_initial_state :pending
   
   aasm_state :pending
-  aasm_state :approved  
+  aasm_state :approved
+  aasm_state :delivered
+  aasm_state :confirmed
+  aasm_state :canceled  
   aasm_state :paid
   
   aasm_event :approve do 
@@ -46,8 +55,12 @@ class Order < ActiveRecord::Base
   end
   
   aasm_event :pay do
-    transitions :to => :paid, :from => [:pending, :approved]
+    transitions :to => :paid, :from => [:pending, :approved, :confirmed]
   end
+  
+  aasm_event :cancel do
+    transitions :to => :canceled, :from => [:approved, :confirmed, :canceled, :paid]
+  end 
     
 end
 

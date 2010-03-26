@@ -12,6 +12,13 @@
   </div>
 
   <div class="group">
+    <%= f.label :state, "Статус", :class => :label %>
+    <%= f.select :state, Order::STATES.keys.collect {|k|  [Order::STATES[k], k] }, :selected => @order.state.to_sym ,:class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+
+  <div class="group">
     <%= f.label :user_name, t("activerecord.attributes.order.user_name", :default => "User name"), :class => :label %>
     <%= f.text_field :user_name, :class => 'text_field' %>
     <span class="description">Ex: a simple text</span>
