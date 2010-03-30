@@ -63,6 +63,9 @@ class Item < ActiveRecord::Base
   has_many :photos, :class_name => "ItemPhoto"
   has_many :item_photos
   
+  accepts_nested_attributes_for :photos, :reject_if => :all_blank
+  
+  
   
   validates_presence_of :title
   validates_presence_of :body

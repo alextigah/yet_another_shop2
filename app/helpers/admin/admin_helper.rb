@@ -4,5 +4,11 @@ module Admin::AdminHelper
     array.collect {|e| [e, array.index(e)]}
   end
   
+  def setup_item(item)
+    returning(item) do |p|
+      p.photos.build if p.photos.empty?
+    end
+  end  
+  
   
 end
