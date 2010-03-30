@@ -36,7 +36,7 @@
 			<ul class="small-photos">
 				<li class="current"><a href="<%= @item.image.url %>"><img src="<%= @item.image.url(:small) %>" width="90" height="90" alt="<%= @item.title %>" border="1"></a></li>
 				<% for photo in @item.photos %>
-					<li><a href="<%= photo.image.url(:large) %>"><img src="<%= photo.image.url(:thumb) %>" width="90" height="90" alt="<%= @item.title %>"></a></li>
+					<li><a href="<%= @item.image.url(:large) %>"><img src="<%= photo.image.url(:thumb) %>" width="90" height="90" alt="<%= @item.title %>"></a></li>
 				<% end %>
 
 			</ul>
