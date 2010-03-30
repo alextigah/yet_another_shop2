@@ -72,11 +72,11 @@ class Item < ActiveRecord::Base
   validates_associated :brand
   validates_associated :category
   
-  after_save :make_permalink
+  # after_save :make_permalink
   
-  def make_permalink
-    self.update_attribute(:permalink, title.gsub(',','').gsub('\\','-').gsub(" ",'-').gsub("#",'-')) if permalink.blank?
-  end
+  # def make_permalink
+    # self.update_attribute(:permalink, title.gsub(',','').gsub('\\','-').gsub(" ",'-').gsub("#",'-')) if permalink.blank?
+  # end
   
   def link
     # "/items/#{self.id}"
