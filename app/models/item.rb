@@ -80,7 +80,7 @@ class Item < ActiveRecord::Base
   
   def link
     # "/items/#{self.id}"
-    "/shop/#{category.permalink}/#{self.id}-#{self.permalink}"
+    "/shop/#{category.permalink}/#{self.id}"
   end
   
 end
