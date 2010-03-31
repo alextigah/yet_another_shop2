@@ -46,9 +46,23 @@
 	<div class="goods">
 		<h2>Новинки</h2>
 		<ul>
+			<% for item in @items%>	
+				<li>
+				<% unless item.status.zero? %>
+				<div class="plashka <%= Item::STATUS[item.status]%>">
+				<div>
+				<img src="/i/<%= Item::STATUS[item.status]%>_icon.png" alt="новинка"/>
+				</div>
+				</div>
+				<% end %>
+				<div style="height:250px;">
+				<a href="<%= item.link %>"><img src="<%= item.image.url(:main) %>" alt=""  border="0"></a>
+				</div>
+				<div class="price hot" ><%= price_print(item.price) %><span>грн</span></div>	
+				<div class="title"><a href="#"><%= item.title %></a></div>
+				</li>
 
-			<%= render :partial => "items/item", :collection => @items %>
-			
+			<% end %>		
 
 			<br class="clearfix"/>				
 		</ul>
