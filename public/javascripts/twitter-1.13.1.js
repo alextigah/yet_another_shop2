@@ -344,7 +344,7 @@ if (typeof renderTwitters != 'function') (function () {
         
         function formatDate(date) {
             var ds = date.toDateString().split(/ /),
-                mon = monthDict[date.getMonth()],
+                mon = date.getMonth()//monthDict[date.getMonth()],
                 day = date.getDate()+'',
                 dayi = parseInt(day),
                 year = date.getFullYear(),
@@ -352,19 +352,32 @@ if (typeof renderTwitters != 'function') (function () {
                 th = 'th';
             
             // anti-'th' - but don't do the 11th, 12th or 13th
-            if ((dayi % 10) == 1 && day.substr(0, 1) != '1') {
-                th = 'st';
-            } else if ((dayi % 10) == 2 && day.substr(0, 1) != '1') {
-                th = 'nd';
-            } else if ((dayi % 10) == 3 && day.substr(0, 1) != '1') {
-                th = 'rd';
-            }
+            // if ((dayi % 10) == 1 && day.substr(0, 1) != '1') {
+            //     th = 'st';
+            // } else if ((dayi % 10) == 2 && day.substr(0, 1) != '1') {
+            //     th = 'nd';
+            // } else if ((dayi % 10) == 3 && day.substr(0, 1) != '1') {
+            //     th = 'rd';
+            // }
+            // 
+            // if (day.substr(0, 1) == '0') {
+            //     day = day.substr(1);
+            // }
+
+			if (mon.toString().length == 1)
+			{
+				mon = '0' + mon;
+			}
+			
+			if (day.toString().length == 1)
+			{
+				day = '0' + day;
+			}
+			
+
+			
             
-            if (day.substr(0, 1) == '0') {
-                day = day.substr(1);
-            }
-            
-            return mon + ' ' + day + th + (thisyear != year ? ', ' + year : '');
+            return day + '.' + mon + (thisyear != year ? '.' +year : '');// day + th + (thisyear != year ? ', ' + year : '');
         }
         
         delta = delta + (relative_to.getTimezoneOffset() * 60);
