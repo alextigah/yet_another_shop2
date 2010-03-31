@@ -118,6 +118,7 @@ body{
 #content #top #tweet ul li{
 	list-style:none;
 }
+
 #content #top .news{
 	border:1px solid #E1E1E1;
 	padding:10px;
@@ -131,7 +132,7 @@ body{
 	font-size:12px;
 	color:#dab426;
 }
-#content .news .body{
+#content #top #tweet .body{
 	font-size:14px;
 	color:#868686;
 	margin:0px 0px 10px 0px;
