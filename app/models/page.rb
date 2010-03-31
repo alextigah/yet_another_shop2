@@ -8,7 +8,7 @@ class Page < ActiveRecord::Base
   named_scope :published, :conditions => {:public => true}  
   
   def link
-    "/pages/#{id}"
+    "/page/#{id}"
   end
   
 end
