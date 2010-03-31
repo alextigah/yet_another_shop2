@@ -506,6 +506,8 @@ body{
 }
 #content #item .share a{
 	margin:0px 10px 0px 0px;
+	color: #0045B7;;
+	font-size:11px;	
 }
 #content #similar-items{
 	text-align:center;
