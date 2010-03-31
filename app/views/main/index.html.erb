@@ -1,3 +1,27 @@
+<% content_for :head do -%>
+	<script 
+	  src="http://twitterjs.googlecode.com/svn/trunk/src/twitter.min.js"
+	  type="text/javascript">
+	</script>
+	
+	<script>
+		$(function()
+		{
+			
+			getTwitters('tweet', { 
+			  id: 'shuttle_ua', 
+			  count: 5, 
+			  enableLinks: true, 
+			  ignoreReplies: true, 
+			  clearContents: true,
+			  template: '<p class="body">"%text%"</p><p class="date">%time%</p><a href="http://twitter.com/%user_screen_name%/statuses/%id%/"></a>'
+			});	
+	
+		});
+		</script>
+
+<% end -%>
+
 <div id="content">
 	<%= render :partial => "shared/menu"%>
 	<div id="top">
@@ -9,11 +33,11 @@
 		<% end %>
 		<div>
 			<div class="twitter-bird"><img src="/i/twitter-logo.png"></div>
-			<div class="news left">
-				<% for message in @messages %>
-					<p class="date"><%= Date.parse(message.created_at).strftime("%d.%m.%y")%></p>
-					<p class="body"><%= message.text %></p>
-				<% end %>
+			<div class="news left" id="tweet">
+				<%# for message in @messages %>
+					<p class="date"><%#= Date.parse(message.created_at).strftime("%d.%m.%y")%></p>
+					<p class="body"><%#= message.text %></p>
+				<%# end %>
 			</div>
 		</div>
 		<br class="clearfix"/>
