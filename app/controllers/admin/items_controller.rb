@@ -9,4 +9,9 @@ class Admin::ItemsController < Admin::AdminController
   #   raise params.inspect
   # end
   
+  def search
+    @items = Item.find(:all, :conditions => {:code => params[:item][:query]})
+    render :action => "index"
+  end
+  
 end

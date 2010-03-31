@@ -6,8 +6,17 @@
     </ul>
   </div>          
   <div class="content">          
+	
     <h2 class="title"><%= t("web-app-theme.all", :default => "All")  %> Items</h2>
     <div class="inner">
+	
+		 <% form_for :item, :url => search_admin_items_path, :html => { :class => :form, :multipart => true } do |f| -%>
+			<%= f.text_field :query %>
+			<%= f.submit "Search by code" %>
+     <% end -%>
+
+	<br />
+	
       <table class="table">
         <tr>             
 					<th class="first">
