@@ -34,9 +34,9 @@
 				<img id="large-photo" src="<%= @item.image.url(:large) %>"  alt="<%= @item.title %>">
 			</div>
 			<ul class="small-photos">
-				<li class="current"><a href="<%= @item.image.url(:large) %>"><img src="<%= @item.image.url(:small) %>" width="90" height="113" alt="<%= @item.title %>" border="0"></a></li>
+				<li class="current"><a href="<%= @item.image.url(:large) %>"><img src="<%= @item.image.url(:small) %>" width="90" height="113" alt="<%= @item.title %>" border="1"></a></li>
 				<% for photo in @item.photos %>
-					<li><a href="<%= photo.image.url(:large) %>"><img src="<%= photo.image.url(:small) %>" width="90" height="113" border="0" alt="<%= @item.title %>"></a></li>
+					<li><a href="<%= photo.image.url(:large) %>"><img src="<%= photo.image.url(:small) %>" width="90" height="113" border="1" alt="<%= @item.title %>"></a></li>
 				<% end %>
 
 			</ul>
