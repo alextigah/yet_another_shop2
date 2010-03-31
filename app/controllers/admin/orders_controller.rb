@@ -10,4 +10,9 @@ class Admin::OrdersController < Admin::AdminController
     redirect_to :back
   end
   
+  def print
+    @order = Order.find params[:id]    
+    render :layout => false
+  end
+  
 end
