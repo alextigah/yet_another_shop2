@@ -32,6 +32,10 @@ class Order < ActiveRecord::Base
     sum
   end
   
+  def shipping_amount
+    15 if !city.blank? && city != CITIES.first
+  end
+  
   named_scope :approved, :conditions => {:state => "approved"}
   named_scope :paid, :conditions => {:state => "paid"}
   named_scope :not_state, lambda {|state| {:conditions => ["state != ?", state]}}
@@ -45,6 +49,7 @@ class Order < ActiveRecord::Base
   
   def item_availability_approved
     items.each {|i| i.item_availability.decrement!(:quantity)}
+    Notifier.deliver_order(self)  
   end
   
   include AASM
