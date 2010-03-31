@@ -1,0 +1,45 @@
+<% if params[:action] == "edit" %>
+
+
+<% f.fields_for :availabilities do |a| %>
+
+  <div class="group">
+		<div style="float:left">
+	    <%= a.label :size, t("activerecord.attributes.item_availability.size", :default => "Size"), :class => :label %>
+	    <%= a.select :size, Item::SIZE.collect {|s| [s, Item::SIZE.index(s)]}, :class => 'text_field' %> 	
+		</div>
+		<div style="float:left">
+	    <%= a.label :quantity, t("activerecord.attributes.item_availability.quantity", :default => "Quantity"), :class => :label %>
+	    <%= a.text_field :quantity, :class => 'text_field' %>
+		</div>
+		<br style="clear:both"/>
+  </div>	
+
+<% end %>
+
+
+
+
+<% else %>
+
+	<% for size in Item::SIZE %>
+		<% f.fields_for :availabilities do |a| %>
+			<% idx = Item::SIZE.index(size)%>		
+			<% a.object = ItemAvailability.new(:size => idx, :quantity => 0) %>
+
+		  <div class="group">
+				<div style="float:left">
+			    <%= a.label :size, "Size", :class => :label %>
+			    <%= a.select :size, Item::SIZE.collect {|s| [s, Item::SIZE.index(s)]}, {}, :name => "item[availabilities_attributes][#{idx}][size]" %> 	
+				</div>
+				<div style="float:left">
+			    <%= a.label :quantity, t("activerecord.attributes.item_availability.quantity", :default => "Quantity"), :class => :label %>
+			    <%= a.text_field :quantity, :class => 'text_field', :name => "item[availabilities_attributes][#{idx}][quantity]" %>
+				</div>
+				<br style="clear:both"/>
+		  </div>	
+
+		<% end %>
+	<% end %>
+	
+<% end %>
