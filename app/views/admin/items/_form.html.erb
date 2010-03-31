@@ -81,8 +81,8 @@
 				<%= p.file_field :image, :class => 'text_field', :name => "item[photos_attributes][#{idx}][image]" %>
 
 				<% if p.object && !p.object.new_record? %>
-					<%= p.check_box '_delete' %>
-					<%= p.label '_delete', 'Remove' %>
+					<%= p.check_box '_destroy' %>
+					<%= p.label '_destroy', 'Remove' %>
 				<% end %>
 			</div>			
 			<% idx += 1 %>
@@ -97,8 +97,8 @@
 					<%= p.file_field :image, :class => 'text_field', :name => "item[photos_attributes][#{idx}][image]" %>
 
 					<% if p.object && !p.object.new_record? %>
-						<%= p.check_box '_delete' %>
-						<%= p.label '_delete', 'Remove' %>
+						<%= p.check_box '_destroy' %>
+						<%= p.label '_destroy', 'Remove' %>
 					<% end %>
 				</div>			
 				<% idx += 1 %>
