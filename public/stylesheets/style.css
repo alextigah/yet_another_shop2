@@ -450,6 +450,9 @@ body{
 #content #item .small-photos li.current img{
 	border:1px solid #E1E1E1;
 }
+#content #item .small-photos li img{
+	border:1px solid #fff;
+}
 #content #item h1{
 	color:#b52631;
 	font-size:18px;
@@ -503,6 +506,9 @@ body{
 }
 #content #item .share a{
 	margin:0px 10px 0px 0px;
+	color: #d3d3d3;
+	font-size:11px;	
+	text-decoration:none;
 }
 #content #similar-items{
 	text-align:center;
