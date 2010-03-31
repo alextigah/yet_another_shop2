@@ -115,6 +115,9 @@ body{
 	left:1050px;
 	top:220px;
 }
+#content #top #tweet ul li{
+	list-style:none;
+}
 #content #top .news{
 	border:1px solid #E1E1E1;
 	padding:10px;
