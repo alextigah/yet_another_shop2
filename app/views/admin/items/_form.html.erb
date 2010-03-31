@@ -66,6 +66,11 @@
     <span class="description">Ex: a simple text</span>
   </div>
 
+
+  <div class="group">
+		<%= image_tag f.object.image.url(:thumb) if f.object && f.object.image %>
+	</div>
+
   <div class="group">
     <%= f.label :image, t("activerecord.attributes.item.image", :default => "Image"), :class => :label %>
     <%= f.file_field :image, :class => 'text_field' %>
@@ -87,7 +92,7 @@
 	
 	
 		<% idx = 0 %>
-		<% f.fields_for :photos do |p| %>
+		<% f.fields_for :photos do |p| -%>
 			<div class="group">
 				<%= p.label :image, "Доп. фото", :class => :label %>
 				<%= p.file_field :image, :class => 'text_field', :name => "item[photos_attributes][#{idx}][image]" %>
@@ -98,7 +103,17 @@
 		
 			</div>			
 			<% idx += 1 %>
-		<% end %>
+		<% end -%>
+		
+		<% (2-idx).times do |i| -%>
+			<% f.fields_for :photos,{}, :html => {:id => nil} do |p| -%>
+			<% p.object = nil %>
+				<div class="group">
+					<%= p.label :image, "Доп. фото", :class => :label %>
+					<%= p.file_field :image, :class => 'text_field', :name => "item[photos_attributes][#{i+idx}][image]" %>
+				</div>			
+			<% end -%>
+		<% end -%>
 
 	<% else %>
 
@@ -108,7 +123,6 @@
 					<%= p.label :image, "Доп. фото", :class => :label %>
 					<%= p.file_field :image, :class => 'text_field', :name => "item[photos_attributes][#{idx}][image]" %>
 				</div>			
-				<% idx += 1 %>
 			<% end %>	
 		<% end %>
 
