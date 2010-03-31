@@ -508,6 +508,7 @@ body{
 	margin:0px 10px 0px 0px;
 	color: #d3d3d3;
 	font-size:11px;	
+	text-decoration:none;
 }
 #content #similar-items{
 	text-align:center;
