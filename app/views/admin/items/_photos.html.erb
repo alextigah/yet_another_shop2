@@ -1,0 +1,47 @@
+<% if params[:action] == "edit"%>
+
+	<% if f.object.photos.count > 0 %>
+	  <div class="group">
+			<% for photo in f.object.photos %>
+				<%= image_tag photo.image.url(:thumb) %>
+			<% end %>
+		</div>
+	<% end %>
+
+
+	<% idx = 0 %>
+	<% f.fields_for :photos do |p| -%>
+		<div class="group">
+			<%= p.label :image, "Доп. фото", :class => :label %>
+			<%= p.file_field :image, :class => 'text_field', :name => "item[photos_attributes][#{idx}][image]" %>
+
+	
+				<%= p.check_box '_destroy' %>
+				<%= p.label '_destroy', 'Remove' %>
+	
+		</div>			
+		<% idx += 1 %>
+	<% end -%>
+	
+	<% (2-idx).times do |i| -%>
+		<% f.fields_for :photos,{}, :html => {:id => nil} do |p| -%>
+		<% p.object = nil %>
+			<div class="group">
+				<%= p.label :image, "Доп. фото", :class => :label %>
+				<%= p.file_field :image, :class => 'text_field', :name => "item[photos_attributes][#{i+idx}][image]" %>
+			</div>			
+		<% end -%>
+	<% end -%>
+
+<% else %>
+
+	<% 2.times do |idx| %>	
+		<% f.fields_for :photos do |p| %>
+			<div class="group">
+				<%= p.label :image, "Доп. фото", :class => :label %>
+				<%= p.file_field :image, :class => 'text_field', :name => "item[photos_attributes][#{idx}][image]" %>
+			</div>			
+		<% end %>	
+	<% end %>
+
+<% end %>

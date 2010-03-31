@@ -66,6 +66,7 @@ class Item < ActiveRecord::Base
   has_many :item_photos
   
   accepts_nested_attributes_for :photos, :allow_destroy => true#, :reject_if => :all_blank
+  accepts_nested_attributes_for :availabilities#, :reject_if => :all_blank
   
   
   

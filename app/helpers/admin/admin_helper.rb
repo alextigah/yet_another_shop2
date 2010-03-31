@@ -7,6 +7,7 @@ module Admin::AdminHelper
   def setup_item(item)
     returning(item) do |p|
       p.photos.build if p.photos.empty?
+      p.availabilities.build if p.availabilities.empty?
     end
   end  
   
