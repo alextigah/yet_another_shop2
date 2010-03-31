@@ -25,8 +25,6 @@
     <span class="description">Если не заполнить, сгенерится автоматически</span>
   </div> -->
 
-
-
   <div class="group">
     <%= f.label :status, t("activerecord.attributes.item.status", :default => "Status"), :class => :label %>
     <%= f.select :status, constant_to_select(Item::STATUS) %>
@@ -72,6 +70,43 @@
     <%= f.label :image, t("activerecord.attributes.item.image", :default => "Image"), :class => :label %>
     <%= f.file_field :image, :class => 'text_field' %>
   </div>
+
+	<%# 2.times do |idx| %>
+	<% if params[:action] == "edit"%>
+	
+		<% idx = 0 %>
+		<% f.fields_for :photos do |p| %>
+			<div class="group">
+				<%= p.label :image, "Доп. фото", :class => :label %>
+				<%= p.file_field :image, :class => 'text_field', :name => "item[photos_attributes][#{idx}][image]" %>
+
+				<% if p.object && !p.object.new_record? %>
+					<%= p.check_box '_delete' %>
+					<%= p.label '_delete', 'Remove' %>
+				<% end %>
+			</div>			
+			<% idx += 1 %>
+		<% end %>
+
+	<% else %>
+
+		<% 2.times do |idx| %>	
+			<% f.fields_for :photos do |p| %>
+				<div class="group">
+					<%= p.label :image, "Доп. фото", :class => :label %>
+					<%= p.file_field :image, :class => 'text_field', :name => "item[photos_attributes][#{idx}][image]" %>
+
+					<% if p.object && !p.object.new_record? %>
+						<%= p.check_box '_delete' %>
+						<%= p.label '_delete', 'Remove' %>
+					<% end %>
+				</div>			
+				<% idx += 1 %>
+			<% end %>	
+		<% end %>
+
+	<% end %>
+
 
   <div class="group">
     <%= f.label :public, t("activerecord.attributes.item.public", :default => "Public"), :class => :label %>

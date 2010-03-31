@@ -10,6 +10,8 @@ class Item < ActiveRecord::Base
   @@per_page = 15  
   
   acts_as_taggable_on :tags, :colors
+  
+  default_scope :order => "created_at DESC"
 
   named_scope :not_self, lambda {|this| { :conditions => ["id != #{this.id}"] }}
   named_scope :gender, lambda {|gender| { :conditions => ["gender = #{gender} OR gender = 2"] }}
@@ -63,7 +65,7 @@ class Item < ActiveRecord::Base
   has_many :photos, :class_name => "ItemPhoto"
   has_many :item_photos
   
-  accepts_nested_attributes_for :photos, :reject_if => :all_blank
+  accepts_nested_attributes_for :photos, :allow_destroy => true#, :reject_if => :all_blank
   
   
   
@@ -76,9 +78,9 @@ class Item < ActiveRecord::Base
   validates_associated :category
   
   # after_save :make_permalink
-  
+  # 
   # def make_permalink
-    # self.update_attribute(:permalink, title.gsub(',','').gsub('\\','-').gsub(" ",'-').gsub("#",'-')) if permalink.blank?
+  #   self.update_attribute(:permalink, '11')#title.gsub(',','').gsub('\\','-').gsub(" ",'-').gsub("#",'-')) if permalink.blank?
   # end
   
   def link
