@@ -339,7 +339,7 @@ if (typeof renderTwitters != 'function') (function () {
                 min = '0' + min;
             }
             
-            return hour + ':' + min + ' ' + ampm;
+            return hour + ':' + min; //+ ' ' + ampm;
         }
         
         function formatDate(date) {
