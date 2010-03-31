@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100331093538) do
+ActiveRecord::Schema.define(:version => 20100331102159) do
 
   create_table "brands", :force => true do |t|
     t.string   "title",                                :null => false
@@ -109,6 +109,7 @@ ActiveRecord::Schema.define(:version => 20100331093538) do
     t.boolean  "public",             :default => true, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "link",                                 :null => false
   end
 
   create_table "taggings", :force => true do |t|
