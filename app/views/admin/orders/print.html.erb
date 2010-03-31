@@ -1,0 +1,53 @@
+<% form_for @order, :url => admin_order_path(@order), :html => { :class => :form } do |f| -%> 
+    <p>
+      <b><%= t("activerecord.attributes.admin_order.shipping_type", :default => t("activerecord.labels.shipping_type", :default => "Shipping type")) %>:</b>
+      <%= Order::SHIPPING[@order.shipping_type] %>
+    </p>
+
+    <p>
+      <b><%= t("activerecord.attributes.admin_order.payment_type", :default => t("activerecord.labels.payment_type", :default => "Payment type")) %>:</b>
+      <%= Order::PAYMENT[@order.payment_type] %>
+    </p>
+
+    <p>
+      <b><%= t("activerecord.attributes.admin_order.user_name", :default => t("activerecord.labels.user_name", :default => "User name")) %>:</b>
+      <%= @order.user_name %>
+    </p>
+
+    <p>
+      <b><%= t("activerecord.attributes.admin_order.email", :default => t("activerecord.labels.email", :default => "Email")) %>:</b>
+      <%= @order.email %>
+    </p>
+
+    <p>
+      <b><%= t("activerecord.attributes.admin_order.phone", :default => t("activerecord.labels.phone", :default => "Phone")) %>:</b>
+      <%= @order.phone %>
+    </p>
+
+    <p>
+      <b><%= t("activerecord.attributes.admin_order.city", :default => t("activerecord.labels.city", :default => "City")) %>:</b>
+      <%= @order.city %>
+    </p>
+
+    <p>
+      <b><%= t("activerecord.attributes.admin_order.address", :default => t("activerecord.labels.address", :default => "Address")) %>:</b>
+      <%= @order.address %>
+    </p>
+		<p>
+			<b>Всего к оплате</b>
+			<%= @order.total_amount %>
+		</p>
+		
+		<p>
+		  <%= f.label :state, "Статус", :class => :label %>
+	    <%= f.select :state, Order::STATES.keys.collect {|k|  [Order::STATES[k], k] }, :selected => @order.state.to_sym ,:class => 'text_field' %>
+		</p>
+		
+		<p>
+	    <%= f.label :comments, t("activerecord.attributes.order.comments", :default => "Comments"), :class => :label %>
+	    <%= f.text_area :comments, :class => '', :rows => "10", :cols => "100" %>
+	  </p>
+		
+	  <input type="submit" class="button" value="Save &rarr;" />
+		
+	<% end %>
