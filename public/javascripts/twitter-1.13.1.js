@@ -377,7 +377,7 @@ if (typeof renderTwitters != 'function') (function () {
 
 			
             
-            return day + '.' + mon + (thisyear != year ? '.' +year : '');// day + th + (thisyear != year ? ', ' + year : '');
+            return day + '.' + mon + '.' + year; // : '');// day + th + (thisyear != year ? ', ' + year : '');
         }
         
         delta = delta + (relative_to.getTimezoneOffset() * 60);
