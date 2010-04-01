@@ -1,6 +1,6 @@
 class Item < ActiveRecord::Base
   
-  has_attached_file :image, :styles => { :main => "200x250#", :thumb => "160x200#", :small => "90x113#", :large => "400x500#" }  
+  has_attached_file :image, :styles => { :main => "180x200#", :thumb => "160x200#", :small => "90x113#", :large => "400x500#" }  
 
   GENDER = %w[Девушки Парни Унисекс]
   SIZE = %w[S M L XL]
