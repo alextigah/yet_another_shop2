@@ -310,13 +310,11 @@ body{
 #content #filters .colors {
 	vertical-align:top;
 	display:inline-block;
-	margin:0px 10px 0px 0px;
 }
 #content #filters .colors img{
 
 }
 #content #filters .colors a{
-	padding:5px;
 }
 #content #filters a.man{
 	color:#0097b7;
