@@ -22,5 +22,5 @@
 	
 	<i class="f-separator">&nbsp;</i>
 	
-	<%= select_tag 'brands', options_for_select([["все бренды", remove_query("brand")]] + Brand.published.collect {|u| [u.title, make_query("brand", u.permalink)]}, :selected => make_query("brand", params[:brand])) %>
+	<%= select_tag 'brands', options_for_select([["все бренды", remove_query("brand")]] + Brand.published.collect {|u| [u.title, make_query("brand", u.permalink)]}, :selected => (params[:brand].nil? ? '' : make_query("brand", params[:brand]))) %>
 </div>
