@@ -10,7 +10,7 @@
 			
 			getTwitters('tweet', { 
 			  id: 'shuttle_ua', 
-			  count: 5, 
+			  count: 7, 
 			  enableLinks: true, 
 			  ignoreReplies: true, 
 			  clearContents: true,
@@ -31,10 +31,10 @@
 			<div class="p-pic"><a href="<%= @sale.link unless @sale.link.blank? %>"><img src="<%= @sale.image.url(:main) %>" width="563" height="425" alt="<%= @sale.title %>" border="0"></a></div>
 		</div>
 		<% end %>
-		<div>
+		<div class="news left">
+		<div class="twitter-bird"><img src="/i/twitter-logo.png"></div>
+			<div id="tweet">
 
-			<div class="news left" id="tweet">
-							<div class="twitter-bird"><img src="/i/twitter-logo.png"></div>
 				<%# for message in @messages %>
 					<p class="date"><%#= Date.parse(message.created_at).strftime("%d.%m.%y")%></p>
 					<p class="body"><%#= message.text %></p>
