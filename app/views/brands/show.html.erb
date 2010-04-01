@@ -2,6 +2,6 @@
 <div id="content">
 	<div class="back-nav"><a href="#"><span>&larr;</span> обратно в магазин</a></div>
 	<h1><%= @brand.title %></h1>
-	<div style="margin:0px 0px 20px 0px;"><%= image_tag @brand.image.url %></div>
+	<div style="margin:20px 0px 20px 0px;"><%= image_tag @brand.image.url %></div>
 	<p><%= @brand.body.gsub(/\n/, "<br />") %></p>
 </div>
