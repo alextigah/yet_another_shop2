@@ -335,6 +335,7 @@ body{
 	list-style:none;
 	float:left;
 	margin:0px 20px 30px 0px;
+	text-align:center;
 }
 #content .goods ul li .price{
 	color: #6d6d6d;
