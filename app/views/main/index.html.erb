@@ -28,7 +28,7 @@
 		<% if @sale %>
 		<div class="p-text"><%= @sale.title %></div>
 		<div class="popular left">
-			<div class="p-pic"><a href="<%= @sale.link unless @sale.link.blank? %>"><img src="<%= @sale.image.url %>" width="563" height="425" alt=""></a></div>
+			<div class="p-pic"><a href="<%= @sale.link unless @sale.link.blank? %>"><img src="<%= @sale.image.url(:main) %>" width="563" height="425" alt="<%= @sale.title %>" border="0"></a></div>
 		</div>
 		<% end %>
 		<div>
