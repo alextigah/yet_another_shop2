@@ -304,6 +304,7 @@ body{
 }
 #content #filters a{
 	color: #868686;
+	margin:0px 5px 0px 0px;
 	text-decoration:none;
 }
 #content #filters .colors {
