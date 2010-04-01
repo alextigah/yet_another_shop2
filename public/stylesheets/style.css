@@ -300,7 +300,7 @@ body{
 
 #content #filters  .active-filter{
 	background-color:#e1fdff;
-	padding:3px;
+
 }
 #content #filters a{
 	color: #868686;
@@ -313,7 +313,7 @@ body{
 	margin:0px 10px 0px 0px;
 }
 #content #filters .colors img{
-	margin:0px 3px 0px 3px;
+	padding:3px;
 }
 #content #filters .colors a{
 	margin:0px;
