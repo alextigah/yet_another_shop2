@@ -112,8 +112,11 @@ body{
 	position:relative;
 	width:85px;	
 	z-index:97;
-	left:200px;
+	left:280px;
 	top:-40px;
+}
+#content #top #tweet {
+	margin:-20px 0px 0px 0px;
 }
 #content #top #tweet ul li{
 	list-style:none;
