@@ -1,5 +1,11 @@
 <div id="content">
-	<h1><%= @brand.title %></h1>
-	<%= image_tag @brand.image.url %>
-	<p><%= @brand.body.gsub(/\n/, "<br />") %></p>
+	<div class="back-nav"><a href="#"><span>&larr;</span> обратно в магазин</a></div>
+	<div class="left brand-logo"><%= image_tag @brand.image.url, :alt => @brand.title %></div>
+	<div class="left brand-desc">
+		<h2><%= @brand.title %></h2>
+		<div><%= @brand.body.gsub(/\n/, "<br />") %>
+		</div>
+	</div>
+	<br class="clearfix"/>
+	
 </div>
