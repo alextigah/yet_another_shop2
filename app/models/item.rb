@@ -22,7 +22,7 @@ class Item < ActiveRecord::Base
   named_scope :random, :order => "rand()"
   named_scope :in_stock, {
     :include => :availabilities, :joins => :availabilities,
-    :conditions => "item_availabilities.quantity > 0"
+    :conditions => "item_availabilities.quantity > 0", :group_by => "items.id"
   }
   
   
