@@ -10,7 +10,7 @@
 		<h2>Номер заказа: #SHUTTLE-<%= @order.id %></h2>
 
 		<% for item in @order.items %>
-		<div><%= item.item.code %> <%= item.item.title%> <%= Item::SIZE[item.item_availability.size] %> <%= item.item.price %></div>
+		<p><%= item.item.code %> <%= item.item.title%> <%= Item::SIZE[item.item_availability.size] %> <%= item.item.price %></p>
 		<% end %>
 
 		<% unless @order.shipping_amount.to_s.blank? %>
