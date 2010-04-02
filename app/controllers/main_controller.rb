@@ -1,7 +1,7 @@
 class MainController < ApplicationController
 
   def index
-    @items = Item.published.limit(12)
+    @items = Item.published.limit(15)
 #    @sales = Sale.published.limit(3)
     @sale = Sale.published.random.first
     # httpauth = Twitter::HTTPAuth.new('_gra', 'zscezsce5')
