@@ -53,6 +53,18 @@
 		</ul>
   </div>
 -->
+
+	<% 
+		Dir.chdir(File.join(RAILS_ROOT, "public", "images", "size_table")) 
+	  size_tables = Dir["*.png"]
+	%>
+	
+  <div class="group">
+    <%= f.label :size_table, "Size Table", :class => :label %>
+    <%= f.select :size_table, size_tables %>
+    <span class="description">Ex: a simple text</span>
+  </div>	
+
   <div class="group">
     <%= f.label :body, t("activerecord.attributes.item.body", :default => "Body"), :class => :label %>
     <%= f.text_area :body, :class => 'mceEditor' %>

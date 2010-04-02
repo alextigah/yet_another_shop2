@@ -64,7 +64,7 @@
 				<%= f.hidden_field :item_id, :value => @item.id %>
 				<div class="size">
 					<%= f.select :item_availability_id, options_for_select(@item.availabilities.in_stock.collect {|a| [Item::SIZE[a.size], a.id] })  %>
-					<span><a href="#">таблица размеров</a></span>
+					<span><a href="/images/size_table/<%= @item.size_table %>">таблица размеров</a></span>
 				</div>
 				<div class="cart-button">
 					<input type="submit" value="Купить">
