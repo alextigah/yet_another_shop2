@@ -164,6 +164,11 @@ body{
 	font-weight:bold;
 	margin:0px 0px 10px 0px;
 }		
+#content #item p{
+	color:#000000;
+	font-size:12px;
+	margin-bottom:20px;
+}
 #content table tr td{
 	padding:10px 40px 10px 0px;
 	color:#868686;
