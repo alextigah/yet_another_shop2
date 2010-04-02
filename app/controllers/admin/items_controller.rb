@@ -1,5 +1,12 @@
 class Admin::ItemsController < Admin::AdminController
   
+  uses_tiny_mce  # :only => [:new, :create, :edit, :update], :class => "text_area",:options => {
+  #                                 :theme => 'advanced',
+  #                                 :theme_advanced_resizing => true,
+  #                                 :theme_advanced_resize_horizontal => false,
+  #                                 :plugins => %w{ table fullscreen }
+  #                               }
+  
   def new
      @item = Item.new
      @item.photos.build     

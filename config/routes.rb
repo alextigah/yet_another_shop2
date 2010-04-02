@@ -21,10 +21,11 @@ ActionController::Routing::Routes.draw do |map|
   map.category 'shop/:permalink', :controller => 'categories'
   map.connect 'shop/:permalink/:id', :controller => 'items', :action => 'show'
   map.page 'page/:permalink', :controller => 'pages', :action => 'show'
+  map.brand 'brand/:permalink', :controller => 'brands', :action => 'show'
   
   map.resources :items    
   # map.resources :pages, :as => "page"
-  map.resources :brands
+  # map.resources :brands
   map.resources :order_items
   map.resource :orders, :member => {:privatmoney => :get, :success => :get, :payment_success => :get, :waiting_for_payment => :get, :payment_error => :get}
   map.root :controller => 'main'

@@ -6,6 +6,9 @@
 	<%= stylesheet_link_tag "web_app_theme", "web_app_theme_override", "themes/drastic-dark/style", :cache => true %>
 	<%= javascript_include_tag 'jquery/jquery-1.4.1.min.js' %>		
 	<%= javascript_include_tag 'admin.js' %>
+	
+	<%= include_tiny_mce_if_needed %>
+  
 	<%#= javascript_include_tag 'jquery/jquery.jgrowl.min.js' %>	
 	
 </head>
