@@ -30,7 +30,7 @@ class Item < ActiveRecord::Base
   named_scope :for_size, lambda {|size| 
       { 
         :include => :availabilities, :joins => :availabilities,
-        :conditions => ["item_availabilities.size = ? AND item_availabilities ", Item::SIZE.index(size)]
+        :conditions => ["item_availabilities.size = ?", Item::SIZE.index(size)]
       } if size
     }
   
