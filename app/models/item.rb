@@ -20,12 +20,17 @@ class Item < ActiveRecord::Base
   named_scope :male, :conditions => ["gender != 0"]
   named_scope :published, :conditions => {:public => true}
   named_scope :random, :order => "rand()"
+  named_scope :in_stock, {
+    :include => :availabilities, :joins => :availabilities,
+    :conditions => "item_availabilities.quantity > 0"
+  }
+  
   
   
   named_scope :for_size, lambda {|size| 
       { 
         :include => :availabilities, :joins => :availabilities,
-        :conditions => ["item_availabilities.size = ?", Item::SIZE.index(size)]
+        :conditions => ["item_availabilities.size = ? AND item_availabilities ", Item::SIZE.index(size)]
       } if size
     }
   
