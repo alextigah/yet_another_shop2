@@ -157,7 +157,12 @@ body{
 	color:#868686;
 	font-size:14px;
 	font-weight:bold;
-}	
+}
+#content h4{
+	color:#0045B7;
+	font-size:14px;
+	font-weight:bold;
+}		
 #content table tr td{
 	padding:10px 40px 10px 0px;
 	color:#868686;
