@@ -383,22 +383,22 @@ if (typeof renderTwitters != 'function') (function () {
         delta = delta + (relative_to.getTimezoneOffset() * 60);
 
         if (delta < 5) {
-            r = 'less than 5 seconds ago';
+            r = 'меньше 5 секунд назад';
         } else if (delta < 30) {
-            r = 'half a minute ago';
+            r = 'пол минуты назад';
         } else if (delta < 60) {
-            r = 'less than a minute ago';
+            r = 'меньше 1 минуты назад';
         } else if (delta < 120) {
-            r = '1 minute ago';
+            r = '1 минуту назад';
         } else if (delta < (45*60)) {
-            r = (parseInt(delta / 60)).toString() + ' minutes ago';
+            r = (parseInt(delta / 60)).toString() + ' минут назад';
         } else if (delta < (2*90*60)) { // 2* because sometimes read 1 hours ago
-            r = 'about 1 hour ago';
+            r = 'около часа назад';
         } else if (delta < (24*60*60)) {
-            r = 'about ' + (parseInt(delta / 3600)).toString() + ' hours ago';
+            r = 'около ' + (parseInt(delta / 3600)).toString() + ' часов назад';
         } else {
             if (delta < (48*60*60)) {
-                r = formatTime(date) + ' yesterday';
+                r = formatTime(date) + ' вчера';
             } else {
                 r = formatTime(date) + ' ' + formatDate(date);
                 // r = (parseInt(delta / 86400)).toString() + ' days ago';
