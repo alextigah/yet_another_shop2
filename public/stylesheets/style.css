@@ -100,7 +100,7 @@ body{
 	font-weight:bold;
 	font-style:italic;
 	color:#fff;
-	top:437px;
+	top:416px;
   filter: alpha(opacity=65);
   -moz-opacity: 0.65;
   opacity: 0.65;
@@ -130,7 +130,7 @@ body{
 	border:1px solid #E1E1E1;
 	padding:10px;
 	width:419px;
-	height:200px;
+	height:180px;
 	z-index:96;
 }
 #content .news .date{
