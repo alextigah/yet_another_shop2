@@ -88,7 +88,7 @@ body{
 #content #top .popular{
 	width:563px;
 	margin:0px 20px 0px 0px;
-	height:425px;
+	height:200px;
 }
 #content #top .p-text{
 	position:absolute;
@@ -105,7 +105,7 @@ body{
 #content #top .popular .p-pic{
 	z-index:98;
 	width:563px;
-	height:425px;
+	height:200px;
 }
 
 #content #top .twitter-bird{
@@ -126,7 +126,7 @@ body{
 	border:1px solid #E1E1E1;
 	padding:10px;
 	width:419px;
-	height:403px;
+	height:200px;
 	z-index:96;
 }
 #content .news .date{

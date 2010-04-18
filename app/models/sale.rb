@@ -1,6 +1,6 @@
 class Sale < ActiveRecord::Base
   
-  has_attached_file :image, :styles => { :main => "563x425#" }
+  has_attached_file :image, :styles => { :main => "563x200#" }
   
   validates_presence_of :title
   
