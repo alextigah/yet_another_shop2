@@ -120,7 +120,7 @@ body{
 	top:-40px;
 }
 #content #top #tweet {
-	margin:-40px 0px 0px 0px;
+	margin:-50px 0px 0px 0px;
 }
 #content #top #tweet ul li{
 	list-style:none;
@@ -130,7 +130,7 @@ body{
 	border:1px solid #E1E1E1;
 	padding:10px;
 	width:419px;
-	height:180px;
+	height:178px;
 	z-index:96;
 }
 #content .news .date{
