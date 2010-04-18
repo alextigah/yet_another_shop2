@@ -101,6 +101,10 @@ body{
 	font-style:italic;
 	color:#fff;
 	top:437px;
+  filter: alpha(opacity=65);
+  -moz-opacity: 0.65;
+  opacity: 0.65;
+
 }
 #content #top .popular .p-pic{
 	z-index:98;
