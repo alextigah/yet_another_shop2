@@ -92,7 +92,7 @@
 					</th>										
           <th class="last">&nbsp;</th>
         </tr>
-			<%= render :partial => "admin/items/item", :collection => @order.items.collect {|i| i.item} %>
+			<%= render :partial => "order_item", :collection => @order.items %>
 			</table>
 
     </div>
