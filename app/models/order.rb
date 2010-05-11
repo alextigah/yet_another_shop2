@@ -50,6 +50,7 @@ class Order < ActiveRecord::Base
   def item_availability_approved
     items.each {|i| i.item_availability.decrement!(:quantity)}
     Notifier.deliver_order(self)  
+    Notifier.deliver_admin_order(self)
   end
   
   include AASM
