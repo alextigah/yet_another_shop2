@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+	
+		<h1>Оформлен новый заказ!</h1>
+
+		<h2>Номер заказа: #SHUTTLE-<%= @order.id %></h2>
+
+		<% for item in @order.items %>
+		<p><%= item.item.code %> <%= item.item.title%> <%= Item::SIZE[item.item_availability.size] %> <%= item.item.price %></p>
+		<% end %>
+
+		<% unless @order.shipping_amount.to_s.blank? %>
+		<p>Стоимость доставки: <%= @order.shipping_amount %></p>
+		<% end %>
+
+		<h2>Всего к оплате <%= @order.total_amount %></h2>
+
+		<h2>Доставка: <%= Order::SHIPPING[@order.shipping_type] %></h2>
+		<p>Получатель: <%= h @order.user_name %>
+		<br />Адрес: <%= @order.city %>, <%= @order.address %>
+		<br />Контактный телефон: <%= @order.phone %></p>
+
+		<p>
+		<% unless @order.comments.blank? %>
+			<br />Комментарии к заказу: <%= @order.comments %>
+		<% end %>
+		</p>
+
+		<p>В течении неcкольких часов с вами свяжется наш менеджер</p>
+
+		<p>Если у вас возникли вопросы, перезвоните нам: (044) 233-5335</p>
+
+		<p>Shuttle.in.ua</p>
+		
+	</body>
+</html>
