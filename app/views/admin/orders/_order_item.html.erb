@@ -9,7 +9,7 @@
 		<%= order_item.item.price %>
 	</td>					
 	<td>
-		<%= order_item.availabilities.collect {|a| Item::SIZE[a.size]}.join(", ") %>
+		<%= order_item.item_availability.collect {|a| Item::SIZE[a.size]}.join(", ") %>
 	</td>
   <td class="last">
 		<%= link_to 'Фото',  admin_item_photos_path(order_item.item) %> |	
