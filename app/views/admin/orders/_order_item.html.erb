@@ -1,21 +1,21 @@
 <tr class="<%= cycle("odd", "even") %>">
 	<td>
-		<%= image_tag(item.item.image.url, :height => "150px") if item.item.image.exists?  %>
+		<%= image_tag(order_item.item.image.url, :height => "150px") if order_item.item.image.exists?  %>
 	</td>
 	<td>
-		<%= link_to item.item.title, admin_item_path(item.item) %>
+		<%= link_to order_item.item.title, admin_item_path(order_item.item) %>
 	</td>
 	<td>
-		<%= item.item.price %>
+		<%= order_item.item.price %>
 	</td>					
 	<td>
-		<%= item.availabilities.collect {|a| Item::SIZE[a.size]}.join(", ") %>
+		<%= order_item.availabilities.collect {|a| Item::SIZE[a.size]}.join(", ") %>
 	</td>
   <td class="last">
-		<%= link_to 'Фото',  admin_item_photos_path(item.item) %> |	
-		<%= link_to 'Наличие',  admin_item_availabilities_path(item.item) %> |
-    <%= link_to "#{t("web-app-theme.show", :default => "Show")}", admin_item_path(item.item) %> |
-    <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_admin_item_path(item.item) %> |
-    <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", admin_item_path(item.item), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+		<%= link_to 'Фото',  admin_item_photos_path(order_item.item) %> |	
+		<%= link_to 'Наличие',  admin_item_availabilities_path(order_item.item) %> |
+    <%= link_to "#{t("web-app-theme.show", :default => "Show")}", admin_item_path(order_item.item) %> |
+    <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_admin_item_path(order_item.item) %> |
+    <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", admin_item_path(order_item.item), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
   </td>
 </tr>
