@@ -20,7 +20,7 @@ module ApplicationHelper
     classes = keys
     concat(link_to("все", remove_query(param), :class => (params[param] == nil ? "active-filter" : "")))   
     keys.each_with_index do |key, idx|
-      concat(link_to(titles[idx] ? (format % titles[idx]) : key), make_query(param, key), :class => ((params[param] == key ? "active-filter" : "") + " " + (classes != nil ? classes[idx] : "" ))   )
+      concat(link_to((titles[idx] ? (format % titles[idx]) : key), make_query(param, key), :class => ((params[param] == key ? "active-filter" : "") + " " + (classes != nil ? classes[idx] : "" ))))
     end
     ""
   end
