@@ -24,23 +24,6 @@
 
 <div id="content">
 	<%= render :partial => "shared/menu"%>
-	<div id="top">
-		<% if @sale %>
-		<div class="p-text"><%= @sale.title %></div>
-		<div class="popular left">
-			<div class="p-pic"><a href="<%= @sale.link unless @sale.link.blank? %>"><img src="<%= @sale.image.url(:main) %>" width="563" height="200" alt="<%= @sale.title %>" border="0"></a></div>
-		</div>
-		<% end %>
-		<div class="news left">
-		<div class="twitter-bird"><a href="http://twitter.com/shuttle_ua"><img src="/i/twitter-logo.png" border="0"></a></div>
-			<div id="tweet">
-
-				<%# for message in @messages %>
-					<p class="date"><%#= Date.parse(message.created_at).strftime("%d.%m.%y")%></p>
-					<p class="body"><%#= message.text %></p>
-				<%# end %>
-			</div>
-		</div>
 		<br class="clearfix"/>
 	</div>
 	
